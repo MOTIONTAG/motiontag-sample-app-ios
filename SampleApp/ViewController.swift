@@ -8,39 +8,66 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    var toggleTrackingButton: UIButton!
+class ViewController: IndicatorUIViewController {
+    var appDelegate: AppDelegate?
+    let trackingButton: UIButton = UIButton(type: .system)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .white
-        addToggleTrackingButton()
-        setToggleTrackingButtonTarget()
-        setToggleTrackingButtonConstraints()
+        appDelegate = UIApplication.shared.delegate as? AppDelegate
+        ovserveSetupCompleted()
     }
 
-    func addToggleTrackingButton() {
-        toggleTrackingButton = UIButton(type: .system)
-        toggleTrackingButton.setTitle("Start Tracking", for: .normal)
-        toggleTrackingButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(toggleTrackingButton)
+    private func ovserveSetupCompleted() {
+        if let appDelegate = appDelegate {
+            if appDelegate.isSetupComplete {
+                setupCompleted()
+            } else {
+                showProgressIndicator()
+                NotificationCenter.default.addObserver(self, selector: #selector(setupCompleted),
+                                                       name: Notification.Name(appDelegate.setupCompleteNotificationName), object: nil)
+            }
+        }
     }
 
-    func setToggleTrackingButtonTarget() {
-        toggleTrackingButton.addTarget(self,
-                                       action: #selector(handleToggleTrackingButtonTouchUpInside),
-                                       for: .touchUpInside)
-    }
+    @objc private func setupCompleted() {
+          hideProgressIndicator()
+          addTrackingButton()
+      }
 
-    func setToggleTrackingButtonConstraints() {
+    private func addTrackingButton() {
+        let title = getTrackingButtonTitle()
+        trackingButton.translatesAutoresizingMaskIntoConstraints = false
+        trackingButton.setTitle(title, for: .normal)
+        trackingButton.addTarget(self,
+                                 action: #selector(handleTrackingButtonTouchUpInside),
+                                 for: .touchUpInside)
+        view.addSubview(trackingButton)
         NSLayoutConstraint.activate([
-            toggleTrackingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            toggleTrackingButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            trackingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            trackingButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
 
-    @objc func handleToggleTrackingButtonTouchUpInside() {
-        print("ToggleTracking button has been tapped")
+    private func getTrackingButtonTitle() -> String {
+        if let motionTag = appDelegate?.motionTag {
+            return motionTag.isTrackingActive ? "Stop Tracking" : "Start Tracking"
+        } else {
+            return "MotionTag SDK not initialized"
+        }
+    }
+
+    @objc private func handleTrackingButtonTouchUpInside() {
+        if let appDelegate = appDelegate, let motionTag = appDelegate.motionTag {
+            if motionTag.isTrackingActive {
+                motionTag.stop()
+
+            } else {
+                motionTag.start(withToken: appDelegate.jwtToken)
+            }
+            let title = getTrackingButtonTitle()
+            trackingButton.setTitle(title, for: .normal)
+        }
     }
 }
