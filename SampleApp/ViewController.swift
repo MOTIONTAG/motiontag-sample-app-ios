@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: IndicatorUIViewController {
+    private let jwtToken = "Your JWT token"
     private var appDelegate: AppDelegate?
 
     override func viewDidLoad() {
@@ -32,28 +33,45 @@ class ViewController: IndicatorUIViewController {
 
     @objc private func setupCompleted() {
         hideProgressIndicator()
-        addTrackingSwtich()
+        initTrackingSwitch()
     }
 
-    private func addTrackingSwtich() {
+    private func initTrackingSwitch() {
+        let trackingLabel = buildTrackingLabel()
+        let trackingSwitch = buildTrackingSwitch()
+
+        let stackview = UIStackView()
+        stackview.axis = .horizontal
+        stackview.spacing = 20
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        stackview.addArrangedSubview(trackingLabel)
+        stackview.addArrangedSubview(trackingSwitch)
+
+        view.addSubview(stackview)
+        stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+
+    private func buildTrackingLabel() -> UILabel {
+        let trackingLabel = UILabel()
+        trackingLabel.text = "Tracking active"
+        trackingLabel.translatesAutoresizingMaskIntoConstraints = false
+        return trackingLabel
+    }
+
+    private func buildTrackingSwitch() -> UISwitch {
         let trackingSwitch = UISwitch()
         trackingSwitch.isEnabled = true
         trackingSwitch.isOn = appDelegate?.motionTag?.isTrackingActive ?? false
-        trackingSwitch.translatesAutoresizingMaskIntoConstraints = false
-
         trackingSwitch.addTarget(self, action: #selector(switchValueDidChange(sender:)), for: .valueChanged)
-        view.addSubview(trackingSwitch)
-
-        NSLayoutConstraint.activate([
-            trackingSwitch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            trackingSwitch.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
+        trackingSwitch.translatesAutoresizingMaskIntoConstraints = false
+        return trackingSwitch
     }
 
     @objc private func switchValueDidChange(sender: UISwitch!) {
-        if let appDelegate = appDelegate, let motionTag = appDelegate.motionTag {
+        if  let motionTag = appDelegate?.motionTag {
             if sender.isOn {
-                motionTag.start(withToken: appDelegate.jwtToken)
+                motionTag.start(withToken: jwtToken)
             } else {
                 motionTag.stop()
             }

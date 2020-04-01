@@ -11,12 +11,11 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let jwtToken = "Your JWT token"
     let setupCompleteNotificationName = "SetupCompleteNotification"
     var isSetupComplete = false
-    var window: UIWindow?
     var motionTag: MotionTag?
-    var viewController: ViewController?
+    var window: UIWindow?
+    private var viewController: ViewController?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         initMainWindow()
@@ -34,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func initMotionTagSDK() {
         let settings: [String: AnyObject] = [kMTDataTransferMode: DataTransferMode.wifiAnd3G.rawValue as AnyObject,
                                              kMTBatterySavingsMode: true as AnyObject]
-        motionTag = MotionTagCore.sharedInstance(withToken: jwtToken, settings: settings, completion: {
+        motionTag = MotionTagCore.sharedInstance(withToken: nil, settings: settings, completion: {
             self.isSetupComplete = true
             NotificationCenter.default.post(name: Notification.Name(self.setupCompleteNotificationName), object: nil)
         })
@@ -45,15 +44,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: MotionTagDelegate
 
 extension AppDelegate: MotionTagDelegate {
-    func locationManager(_: CLLocationManager, didChange _: CLAuthorizationStatus) {
-        NSLog("MotionTag SDK locationManager callback.")
+    func locationManager(_: CLLocationManager, didChange: CLAuthorizationStatus) {
+        NSLog("MotionTag SDK locationManager - CLAuthorizationStatus: \(didChange.rawValue)")
     }
 
-    func didTrackLocation(_: CLLocation) {
-        NSLog("MotionTag SDK didTrackLocation callback.")
+    func didTrackLocation(_ location: CLLocation) {
+        NSLog("MotionTag SDK didTrackLocation - CLLocation: \(location)")
     }
 
-    func didTransmitData(_: Date, lastEventTimestamp _: Date) {
-        NSLog("MotionTag SDK didTransmitData callback.")
+    func didTransmitData(timestamp: Date, lastEventTimestamp: Date) {
+        NSLog("MotionTag SDK didTransmitData - timestamp: \(timestamp), lastEventTimestamp: \(lastEventTimestamp)")
     }
 }

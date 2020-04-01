@@ -27,10 +27,8 @@ class IndicatorUIViewController: UIViewController {
         view.addSubview(overlay!)
         view.addSubview(loadingIndicator!)
 
-        NSLayoutConstraint.activate([
-            loadingIndicator!.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loadingIndicator!.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
+        loadingIndicator!.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loadingIndicator!.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
     func hideProgressIndicator() {
