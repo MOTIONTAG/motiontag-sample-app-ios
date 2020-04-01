@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF92F8CF2434935700D55FEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF92F8CD2434935700D55FEA /* LaunchScreen.storyboard */; };
 		AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5CF24347C02009207DD /* AppDelegate.swift */; };
 		AFDEA5D424347C02009207DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5D324347C02009207DD /* ViewController.swift */; };
 		AFDEA5D924347C05009207DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDEA5D824347C05009207DD /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* Begin PBXFileReference section */
 		7D6BAA250838D4B1E7F3533A /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8DD498E97828F608BDD8A48B /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		AF92F8CE2434935700D55FEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFDEA5CC24347C02009207DD /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDEA5CF24347C02009207DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFDEA5D324347C02009207DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		AFDEA5CE24347C02009207DD /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				AF92F8CD2434935700D55FEA /* LaunchScreen.storyboard */,
 				AFDEA5CF24347C02009207DD /* AppDelegate.swift */,
 				AFDEA5D324347C02009207DD /* ViewController.swift */,
 				AFDEA5D824347C05009207DD /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFDEA5D924347C05009207DD /* Assets.xcassets in Resources */,
+				AF92F8CF2434935700D55FEA /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +205,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AF92F8CD2434935700D55FEA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF92F8CE2434935700D55FEA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AFDEA5DE24347C05009207DD /* Debug */ = {
