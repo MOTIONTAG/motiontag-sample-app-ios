@@ -32,4 +32,5 @@ More information can be found on our website.
 3. Initialize the pods: `pod install` (Contact us in order to get access to the MotionTag SDK framework)
 4. Open `SampleApp.xcworkspace`
 5. Navigate to `Signing & Capabilities` section inside Xcode and update the Team settings
-6. Run the project
+6. Update `userToken` with a valid token
+7. Run the project
