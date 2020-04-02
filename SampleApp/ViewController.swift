@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: IndicatorViewController {
+class ViewController: IndicatorViewController, SetupFinishDelegate {
     private let userToken = "User's JWT token"
     private var appDelegate: AppDelegate?
 
@@ -17,18 +17,22 @@ class ViewController: IndicatorViewController {
         view.backgroundColor = .white
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         showProgressIndicator()
-        observeSetupCompleted()
+        setSetupFinishDelegate()
     }
 
-    private func observeSetupCompleted() {
+    private func setSetupFinishDelegate() {
         if let appDelegate = appDelegate {
-            if appDelegate.isSetupComplete {
-                setupCompleted()
+            if appDelegate.isSetupFinished {
+                didFinishSetup()
             } else {
-                NotificationCenter.default.addObserver(self, selector: #selector(setupCompleted),
-                                                       name: Notification.Name(appDelegate.setupCompleteNotificationName), object: nil)
+                appDelegate.setupFinishDelegate = self
             }
         }
+    }
+
+    func didFinishSetup() {
+        hideProgressIndicator()
+        initTrackingControls()
     }
 
     @objc private func setupCompleted() {
@@ -45,7 +49,6 @@ class ViewController: IndicatorViewController {
         stackview.translatesAutoresizingMaskIntoConstraints = false
         stackview.addArrangedSubview(trackingLabel)
         stackview.addArrangedSubview(trackingSwitch)
-
         view.addSubview(stackview)
         stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

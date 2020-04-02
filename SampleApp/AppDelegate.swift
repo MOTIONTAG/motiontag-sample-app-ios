@@ -9,12 +9,16 @@
 import MotionTagSDK
 import UIKit
 
+protocol SetupFinishDelegate: class {
+    func didFinishSetup()
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let setupCompleteNotificationName = "SetupCompleteNotification"
-    var isSetupComplete = false
+    var isSetupFinished = false
     var motionTag: MotionTag?
     var window: UIWindow?
+    weak var setupFinishDelegate: SetupFinishDelegate?
     private var viewController: ViewController?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -34,8 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings: [String: AnyObject] = [kMTDataTransferMode: DataTransferMode.wifiAnd3G.rawValue as AnyObject,
                                              kMTBatterySavingsMode: true as AnyObject]
         motionTag = MotionTagCore.sharedInstance(withToken: nil, settings: settings, completion: {
-            self.isSetupComplete = true
-            NotificationCenter.default.post(name: Notification.Name(self.setupCompleteNotificationName), object: nil)
+            self.isSetupFinished = true
+            self.setupFinishDelegate?.didFinishSetup()
+
         })
         motionTag?.delegate = self
     }
