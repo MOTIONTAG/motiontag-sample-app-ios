@@ -33,13 +33,12 @@ class ViewController: IndicatorViewController {
 
     @objc private func setupCompleted() {
         hideProgressIndicator()
-        initTrackingSwitch()
+        initTrackingControls()
     }
 
-    private func initTrackingSwitch() {
+    private func initTrackingControls() {
         let trackingLabel = buildTrackingLabel()
         let trackingSwitch = buildTrackingSwitch()
-
         let stackview = UIStackView()
         stackview.axis = .horizontal
         stackview.spacing = 20
@@ -54,6 +53,7 @@ class ViewController: IndicatorViewController {
 
     private func buildTrackingLabel() -> UILabel {
         let trackingLabel = UILabel()
+        trackingLabel.textColor = .black
         trackingLabel.text = "Tracking active"
         trackingLabel.translatesAutoresizingMaskIntoConstraints = false
         return trackingLabel
@@ -61,7 +61,6 @@ class ViewController: IndicatorViewController {
 
     private func buildTrackingSwitch() -> UISwitch {
         let trackingSwitch = UISwitch()
-        trackingSwitch.isEnabled = true
         trackingSwitch.isOn = appDelegate?.motionTag?.isTrackingActive ?? false
         trackingSwitch.addTarget(self, action: #selector(switchValueDidChange(sender:)), for: .valueChanged)
         trackingSwitch.translatesAutoresizingMaskIntoConstraints = false
