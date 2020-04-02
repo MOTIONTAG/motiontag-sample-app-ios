@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AF92F8CF2434935700D55FEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF92F8CD2434935700D55FEA /* LaunchScreen.storyboard */; };
-		AF92F8D12434D73800D55FEA /* IndicatorUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF92F8D02434D73800D55FEA /* IndicatorUIViewController.swift */; };
+		AF92F8D12434D73800D55FEA /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF92F8D02434D73800D55FEA /* IndicatorViewController.swift */; };
 		AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5CF24347C02009207DD /* AppDelegate.swift */; };
 		AFDEA5D424347C02009207DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5D324347C02009207DD /* ViewController.swift */; };
 		AFDEA5D924347C05009207DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDEA5D824347C05009207DD /* Assets.xcassets */; };
@@ -19,7 +19,7 @@
 		7D6BAA250838D4B1E7F3533A /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8DD498E97828F608BDD8A48B /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		AF92F8CE2434935700D55FEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AF92F8D02434D73800D55FEA /* IndicatorUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorUIViewController.swift; sourceTree = "<group>"; };
+		AF92F8D02434D73800D55FEA /* IndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
 		AFDEA5CC24347C02009207DD /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDEA5CF24347C02009207DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFDEA5D324347C02009207DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 				AFDEA5D324347C02009207DD /* ViewController.swift */,
 				AFDEA5D824347C05009207DD /* Assets.xcassets */,
 				AFDEA5DD24347C05009207DD /* Info.plist */,
-				AF92F8D02434D73800D55FEA /* IndicatorUIViewController.swift */,
+				AF92F8D02434D73800D55FEA /* IndicatorViewController.swift */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFDEA5D424347C02009207DD /* ViewController.swift in Sources */,
-				AF92F8D12434D73800D55FEA /* IndicatorUIViewController.swift in Sources */,
+				AF92F8D12434D73800D55FEA /* IndicatorViewController.swift in Sources */,
 				AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,7 +342,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29985693NN;
+				DEVELOPMENT_TEAM = JGX3CR5A9B;
 				INFOPLIST_FILE = SampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -362,7 +362,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29985693NN;
+				DEVELOPMENT_TEAM = JGX3CR5A9B;
 				INFOPLIST_FILE = SampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

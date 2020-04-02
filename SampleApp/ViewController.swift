@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ViewController: IndicatorUIViewController {
-    private let jwtToken = "Your JWT token"
+class ViewController: IndicatorViewController {
+    private let userToken = "User's JWT token"
     private var appDelegate: AppDelegate?
 
     override func viewDidLoad() {
@@ -69,9 +69,9 @@ class ViewController: IndicatorUIViewController {
     }
 
     @objc private func switchValueDidChange(sender: UISwitch!) {
-        if  let motionTag = appDelegate?.motionTag {
+        if let motionTag = appDelegate?.motionTag {
             if sender.isOn {
-                motionTag.start(withToken: jwtToken)
+                motionTag.start(withToken: userToken)
             } else {
                 motionTag.stop()
             }

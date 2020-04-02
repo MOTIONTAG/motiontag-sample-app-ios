@@ -8,23 +8,16 @@
 
 import UIKit
 
-class IndicatorUIViewController: UIViewController {
-    private var overlay: UIView?
+class IndicatorViewController: UIViewController {
     private var loadingIndicator: UIActivityIndicatorView?
 
     func showProgressIndicator() {
-        overlay = UIView(frame: view.frame)
-        overlay!.translatesAutoresizingMaskIntoConstraints = false
-        overlay!.backgroundColor = .black
-        overlay!.alpha = 0.2
-
         loadingIndicator = UIActivityIndicatorView()
         loadingIndicator!.translatesAutoresizingMaskIntoConstraints = false
         loadingIndicator!.hidesWhenStopped = true
         loadingIndicator!.style = UIActivityIndicatorView.Style.gray
         loadingIndicator!.startAnimating()
 
-        view.addSubview(overlay!)
         view.addSubview(loadingIndicator!)
 
         loadingIndicator!.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -33,6 +26,5 @@ class IndicatorUIViewController: UIViewController {
 
     func hideProgressIndicator() {
         loadingIndicator?.removeFromSuperview()
-        overlay?.removeFromSuperview()
     }
 }
