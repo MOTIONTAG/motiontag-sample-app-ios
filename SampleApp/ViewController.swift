@@ -35,11 +35,6 @@ class ViewController: IndicatorViewController, SetupFinishDelegate {
         initTrackingControls()
     }
 
-    @objc private func setupCompleted() {
-        hideProgressIndicator()
-        initTrackingControls()
-    }
-
     private func initTrackingControls() {
         let trackingLabel = buildTrackingLabel()
         let trackingSwitch = buildTrackingSwitch()

@@ -38,9 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings: [String: AnyObject] = [kMTDataTransferMode: DataTransferMode.wifiAnd3G.rawValue as AnyObject,
                                              kMTBatterySavingsMode: true as AnyObject]
         motionTag = MotionTagCore.sharedInstance(withToken: nil, settings: settings, completion: {
+            // The SDK initialization can take some time to finish (e.g.: database migration) therefore it is recommended to use a delegate here to notify when it is done
             self.isSetupFinished = true
             self.setupFinishDelegate?.didFinishSetup()
-
         })
         motionTag?.delegate = self
     }
