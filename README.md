@@ -20,9 +20,9 @@ More information can be found on our website.
 
 **Website:** https://motion-tag.com/
 
-**Documentation:** https://motion-tag.com/en/developers/ios-documentation.html
+**Documentation:** https://api.motion-tag.de/developer/ios
 
-**Changelog:** https://motion-tag.com/en/developers/ios-changelog.html
+**Changelog:** https://api.motion-tag.de/developer/ios_changelog
 
 
 ## Starting the sample app
