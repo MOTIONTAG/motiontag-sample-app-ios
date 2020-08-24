@@ -68,6 +68,7 @@ class ViewController: IndicatorViewController, SetupFinishDelegate {
     @objc private func switchValueDidChange(sender: UISwitch!) {
         if let motionTag = appDelegate?.motionTag {
             if sender.isOn {
+                UserDefaults.standard.set(userToken, forKey: Constants.MT_USER_TOKEN)
                 motionTag.start(withToken: userToken)
             } else {
                 motionTag.stop()

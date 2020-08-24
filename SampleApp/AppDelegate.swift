@@ -13,6 +13,11 @@ protocol SetupFinishDelegate: class {
     func didFinishSetup()
 }
 
+struct Constants {
+    static let MT_USER_TOKEN = "MT_USER_TOKEN"
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var isSetupFinished = false
@@ -37,7 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func initMotionTagSDK() {
         let settings: [String: AnyObject] = [kMTDataTransferMode: DataTransferMode.wifiAnd3G.rawValue as AnyObject,
                                              kMTBatterySavingsMode: true as AnyObject]
-        motionTag = MotionTagCore.sharedInstance(withToken: nil, settings: settings, completion: {
+        let token = UserDefaults.standard.string(forKey: Constants.MT_USER_TOKEN)
+        motionTag = MotionTagCore.sharedInstance(withToken: token, settings: settings, completion: {
             // The SDK initialization can take some time to finish (e.g.: database migration) therefore it is recommended to use a delegate here to notify when it is done
             self.isSetupFinished = true
             self.setupFinishDelegate?.didFinishSetup()
