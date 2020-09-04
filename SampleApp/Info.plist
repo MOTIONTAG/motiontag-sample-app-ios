@@ -47,6 +47,8 @@
 	<string>SampleApp uses location services for analysing travel behaviour.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>SampleApp uses location services for analysing travel behaviour.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>SampleApp uses motion usage for analysing travel behaviour.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
