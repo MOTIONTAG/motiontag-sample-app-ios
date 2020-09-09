@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: IndicatorViewController, SetupFinishDelegate {
-    private let userToken = "User's JWT token"
+
+    // Must be replaced with a valid token: https://api.motion-tag.de/developer/
+    private let userJwtToken = "User's JWT token"
     private var appDelegate: AppDelegate?
 
     override func viewDidLoad() {
@@ -68,8 +70,8 @@ class ViewController: IndicatorViewController, SetupFinishDelegate {
     @objc private func switchValueDidChange(sender: UISwitch!) {
         if let motionTag = appDelegate?.motionTag {
             if sender.isOn {
-                UserDefaults.standard.set(userToken, forKey: Constants.MT_USER_TOKEN)
-                motionTag.start(withToken: userToken)
+                UserDefaults.standard.set(userJwtToken, forKey: Constants.MT_USER_TOKEN_KEY)
+                motionTag.start(withToken: userJwtToken)
             } else {
                 motionTag.stop()
             }
