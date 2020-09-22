@@ -4,5 +4,5 @@ target 'SampleApp' do
     use_frameworks!
 
     # MotionTag SDK Changelog: https://api.motion-tag.de/developer/ios_changelog
-    pod 'MotionTagSDK', git: "https://gitlab.com/motiontag-dist/tracker-library-ios.git", :tag => 'v/1.7.6'
+    pod 'MotionTagSDK', git: "https://gitlab.com/motiontag-dist/tracker-library-ios.git", :tag => 'v/1.7.14'
 end
