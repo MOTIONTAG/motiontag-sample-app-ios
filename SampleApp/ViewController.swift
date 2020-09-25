@@ -72,8 +72,10 @@ class ViewController: IndicatorViewController, SetupFinishDelegate {
             if sender.isOn {
                 UserDefaults.standard.set(userJwtToken, forKey: Constants.MT_USER_TOKEN_KEY)
                 motionTag.start(withToken: userJwtToken)
+                print("after motionTag.start motionTag.isTrackingActive \(motionTag.isTrackingActive)")
             } else {
                 motionTag.stop()
+                print("after motionTag.stop motionTag.isTrackingActive \(motionTag.isTrackingActive)")
             }
         }
     }
