@@ -1,22 +1,22 @@
 PODS:
-  - MotionTagSDK (1.8.1)
+  - MotionTagSDK (1.8.3)
 
 DEPENDENCIES:
-  - MotionTagSDK (from `https://gitlab.com/motiontag-dist/tracker-library-ios.git`, tag `v/1.8.1`)
+  - MotionTagSDK (from `https://gitlab.com/motiontag-dist/tracker-library-ios.git`, tag `v/1.8.3`)
 
 EXTERNAL SOURCES:
   MotionTagSDK:
     :git: https://gitlab.com/motiontag-dist/tracker-library-ios.git
-    :tag: v/1.8.1
+    :tag: v/1.8.3
 
 CHECKOUT OPTIONS:
   MotionTagSDK:
     :git: https://gitlab.com/motiontag-dist/tracker-library-ios.git
-    :tag: v/1.8.1
+    :tag: v/1.8.3
 
 SPEC CHECKSUMS:
-  MotionTagSDK: ca95c362b3dc56ac3102a33e8337b1fde2cc75a9
+  MotionTagSDK: bee443d5c9c05ce406154d76705ddf52f52fcaaa
 
-PODFILE CHECKSUM: a6812caf71bb3e334ef590cc291c42e236b85c7a
+PODFILE CHECKSUM: 5db9ede088edead1160afac39033211a09012da3
 
 COCOAPODS: 1.9.3
