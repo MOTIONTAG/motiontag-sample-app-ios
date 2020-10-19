@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B0FD7B1BB9F07A834275E1E /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91BDAE5CAEC889592C94BF53 /* Pods_SampleApp.framework */; };
+		8D93F4C0253DDE4C0050C8CD /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D93F4BF253DDE4B0050C8CD /* Onboarding.storyboard */; };
+		8D93F4C4253DDF380050C8CD /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F4C3253DDF380050C8CD /* Onboarding.swift */; };
 		AF92F8CF2434935700D55FEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF92F8CD2434935700D55FEA /* LaunchScreen.storyboard */; };
 		AF92F8D12434D73800D55FEA /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF92F8D02434D73800D55FEA /* IndicatorViewController.swift */; };
 		AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5CF24347C02009207DD /* AppDelegate.swift */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		66990E2D71911394829CA629 /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8D93F4BF253DDE4B0050C8CD /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		8D93F4C3253DDF380050C8CD /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		91BDAE5CAEC889592C94BF53 /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF92F8CE2434935700D55FEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF92F8D02434D73800D55FEA /* IndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				AFDEA5D324347C02009207DD /* ViewController.swift */,
 				AFDEA5D824347C05009207DD /* Assets.xcassets */,
 				AFDEA5DD24347C05009207DD /* Info.plist */,
+				8D93F4BF253DDE4B0050C8CD /* Onboarding.storyboard */,
+				8D93F4C3253DDF380050C8CD /* Onboarding.swift */,
 				AF92F8D02434D73800D55FEA /* IndicatorViewController.swift */,
 			);
 			path = SampleApp;
@@ -148,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D93F4C0253DDE4C0050C8CD /* Onboarding.storyboard in Resources */,
 				AFDEA5D924347C05009207DD /* Assets.xcassets in Resources */,
 				AF92F8CF2434935700D55FEA /* LaunchScreen.storyboard in Resources */,
 			);
@@ -204,6 +211,7 @@
 			files = (
 				AFDEA5D424347C02009207DD /* ViewController.swift in Sources */,
 				AF92F8D12434D73800D55FEA /* IndicatorViewController.swift in Sources */,
+				8D93F4C4253DDF380050C8CD /* Onboarding.swift in Sources */,
 				AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

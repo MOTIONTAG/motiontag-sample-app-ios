@@ -26,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var viewController: ViewController?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        initMainWindow()
-        initMotionTagSDK()
+//        initMainWindow()
+//        initMotionTagSDK()
         return true
     }
 
