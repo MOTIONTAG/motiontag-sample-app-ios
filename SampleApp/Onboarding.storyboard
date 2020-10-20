@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Onboarding-->
+        <!--Onboarding View Controller-->
         <scene sceneID="fFp-e4-b9e">
             <objects>
-                <viewController id="5ez-LV-j9S" customClass="Onboarding" customModule="SampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5ez-LV-j9S" customClass="OnboardingViewController" customModule="SampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jvu-Ul-UWU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,6 +81,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="V4A-9Y-3Ja"/>
+                    <connections>
+                        <outlet property="activityButton" destination="0dW-nD-XRQ" id="e64-Aa-p6R"/>
+                        <outlet property="locationButton" destination="m9T-Fi-oYX" id="Kev-wD-06P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtz-LJ-yy4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

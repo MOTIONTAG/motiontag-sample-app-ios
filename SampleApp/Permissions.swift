@@ -10,11 +10,11 @@ import CoreLocation
 import CoreMotion
 
 protocol LocationAuthorizationDelegate: class {
-    func didObtainRequiredAuthorization(result: Bool)
+    func didObtainRequiredLocationAuthorization(result: Bool)
 }
 
 protocol ActivityAuthorizationDelegate: class {
-    func didObtainRequiredAuthorization(result: Bool)
+    func didObtainRequiredActivityAuthorization(result: Bool)
 }
 
 class Permissions: NSObject {
@@ -29,16 +29,44 @@ class Permissions: NSObject {
         return manager
     }()
 
-    func obtainLocationPermission() {
+    private lazy var motionManager: CMMotionActivityManager = {
+        let manager = CMMotionActivityManager()
+        return manager
+    }()
 
+    func obtainLocationPermission() {
+        if #available(iOS 13.0, *) {
+            locationManager.requestWhenInUseAuthorization()
+        } else {
+            locationManager.requestAlwaysAuthorization()
+        }
     }
 
-    func obtain
+    func obtainMotionActivityPermission() {
+        motionManager.queryActivityStarting(from: Date(), to: Date(), to: OperationQueue.main) { [weak self] _, error in
+            if let delegate = self?.activityDelegate {
+                if CMMotionActivityManager.isActivityAvailable() {
+                    delegate.didObtainRequiredActivityAuthorization(result: error == nil)
+                } else {
+                    delegate.didObtainRequiredActivityAuthorization(result: true)
+                }
+            }
+        }
+    }
 }
 
 extension Permissions: CLLocationManagerDelegate {
-
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if let delegate = locationDelegate {
+            var result = false
+            if case .authorizedAlways = status {
+                result = true
+            }
+            delegate.didObtainRequiredLocationAuthorization(result: result)
+        }
+        if case .authorizedWhenInUse = status {
+            locationManager.requestAlwaysAuthorization()
+        }
     }
 }
