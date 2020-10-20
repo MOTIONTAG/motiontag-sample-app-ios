@@ -15,26 +15,32 @@ protocol SetupFinishDelegate: class {
 
 struct Constants {
     static let MT_USER_TOKEN_KEY = "MT_USER_TOKEN_KEY"
+    static let MT_ONBOARDING_OVER_KEY = "MT_ONBOARDING_OVER_KEY"
 }
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var isSetupFinished = false
     var motionTag: MotionTag?
-    var window: UIWindow?
+    lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
     weak var setupFinishDelegate: SetupFinishDelegate?
-    private var viewController: ViewController?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        initMainWindow()
-//        initMotionTagSDK()
+        initMotionTagSDK()
+        initMainWindow()
         return true
     }
 
     private func initMainWindow() {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        viewController = ViewController()
-        window?.rootViewController = viewController
+        if UserDefaults.standard.bool(forKey: Constants.MT_ONBOARDING_OVER_KEY) {
+            let viewController = MainViewController()
+            window?.rootViewController = viewController
+        } else {
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+            let viewController: OnboardingViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
+            viewController.delegate = self
+            window?.rootViewController = viewController
+        }
         window?.makeKeyAndVisible()
     }
 
@@ -64,5 +70,11 @@ extension AppDelegate: MotionTagDelegate {
 
     func didTransmitData(timestamp: Date, lastEventTimestamp: Date) {
         NSLog("MotionTag SDK didTransmitData - timestamp: \(timestamp), lastEventTimestamp: \(lastEventTimestamp)")
+    }
+}
+
+extension AppDelegate: OnboardingCompleteDelegage {
+    func onboardingDidEnd() {
+        UserDefaults.standard.set(true, forKey: Constants.MT_ONBOARDING_OVER_KEY)
     }
 }

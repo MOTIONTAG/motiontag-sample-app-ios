@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol OnboardingCompleteDelegage: class {
+    func onboardingDidEnd()
+}
+
 class OnboardingViewController: UIViewController {
 
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var activityButton: UIButton!
     @IBOutlet weak var endOnboardingButton: UIButton!
 
+    weak var delegate: OnboardingCompleteDelegage?
     
     private lazy var permissions: Permissions = {
         let manager = Permissions()
@@ -39,7 +44,9 @@ class OnboardingViewController: UIViewController {
     }
 
     @IBAction func endOnboardingTapped(_ sender: Any) {
-        
+        if let delegate = delegate {
+            delegate.onboardingDidEnd()
+        }
     }
 }
 

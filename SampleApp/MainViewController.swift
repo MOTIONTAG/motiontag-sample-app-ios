@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  SampleApp
 //
 //  Created by Henrique Faria on 01.04.20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: IndicatorViewController, SetupFinishDelegate {
+class MainViewController: IndicatorViewController, SetupFinishDelegate {
 
     // Must be replaced with a valid token: https://api.motion-tag.de/developer/
     private let userJwtToken = "User's JWT token"
