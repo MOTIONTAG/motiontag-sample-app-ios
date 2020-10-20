@@ -10,10 +10,20 @@ import UIKit
 
 class Onboarding: UIViewController {
 
+    private let permissions = Permissions()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         title = "Onboarding"
+        view.backgroundColor = .white
+    }
+    
+    @IBAction func locationAuthTapped(_ sender: Any) {
+
+    }
+
+    @IBAction func activityAuthTapped(_ sender: Any) {
+
     }
     
 }

@@ -38,6 +38,9 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="locationAuthTapped:" destination="5ez-LV-j9S" eventType="touchUpInside" id="Dzq-3R-gw2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dW-nD-XRQ" userLabel="activityAuthBtn">
                                 <rect key="frame" x="18" y="232" width="378" height="72"/>
@@ -59,6 +62,9 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="activityAuthTapped:" destination="5ez-LV-j9S" eventType="touchUpInside" id="ots-lO-3qE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wdi-04-Dko"/>
