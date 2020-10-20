@@ -3,7 +3,7 @@
 //  SampleApp
 //
 //  Created by Kian on 2020-10-19.
-//  Copyright © 2020 Henrique Faria. All rights reserved.
+//  Copyright © 2020 MotionTag GmbH. All rights reserved.
 //
 
 import UIKit

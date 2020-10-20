@@ -3,7 +3,7 @@
 //  SampleApp
 //
 //  Created by Kian Mehravaran on 10/20/20.
-//  Copyright © 2020 Henrique Faria. All rights reserved.
+//  Copyright © 2020 MotionTag GmbH. All rights reserved.
 //
 
 import CoreLocation

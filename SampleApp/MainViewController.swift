@@ -17,9 +17,9 @@ class MainViewController: IndicatorViewController, SetupFinishDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-//        appDelegate = UIApplication.shared.delegate as? AppDelegate
-//        showProgressIndicator()
-//        setSetupFinishDelegate()
+        appDelegate = UIApplication.shared.delegate as? AppDelegate
+        showProgressIndicator()
+        setSetupFinishDelegate()
     }
 
     private func setSetupFinishDelegate() {

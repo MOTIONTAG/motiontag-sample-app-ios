@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = viewController
         } else {
             let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
-            let viewController: OnboardingViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
+            let viewController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
             viewController.delegate = self
             window?.rootViewController = viewController
         }
@@ -76,5 +76,6 @@ extension AppDelegate: MotionTagDelegate {
 extension AppDelegate: OnboardingCompleteDelegage {
     func onboardingDidEnd() {
         UserDefaults.standard.set(true, forKey: Constants.MT_ONBOARDING_OVER_KEY)
+        initMainWindow()
     }
 }
