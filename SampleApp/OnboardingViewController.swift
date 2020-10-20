@@ -1,5 +1,5 @@
 //
-//  Onboarding.swift
+//  OnboardingViewController.swift
 //  SampleApp
 //
 //  Created by Kian on 2020-10-19.

@@ -17,13 +17,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6LX-Kx-Dlb">
-                                <rect key="frame" x="183" y="322" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m9T-Fi-oYX" userLabel="locationAuthBtn">
+                                <rect key="frame" x="18" y="112" width="378" height="72"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="w8j-AP-0Gd"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Obtain Location Authorization">
+                                            <attributes>
+                                                <color key="NSColor" systemColor="systemBlueColor"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dW-nD-XRQ" userLabel="activityAuthBtn">
+                                <rect key="frame" x="18" y="232" width="378" height="72"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="cCW-UY-YFL"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Obtain Motion &amp; Activity Permission">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="24"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wdi-04-Dko"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0dW-nD-XRQ" firstAttribute="top" secondItem="m9T-Fi-oYX" secondAttribute="bottom" constant="48" id="C1n-15-hUr"/>
+                            <constraint firstItem="Wdi-04-Dko" firstAttribute="trailing" secondItem="m9T-Fi-oYX" secondAttribute="trailing" constant="18" id="Tv4-qr-XRe"/>
+                            <constraint firstItem="m9T-Fi-oYX" firstAttribute="leading" secondItem="Wdi-04-Dko" secondAttribute="leading" constant="18" id="Wxz-fq-K0W"/>
+                            <constraint firstItem="0dW-nD-XRQ" firstAttribute="centerX" secondItem="Wdi-04-Dko" secondAttribute="centerX" id="XgO-GY-GuK"/>
+                            <constraint firstItem="m9T-Fi-oYX" firstAttribute="top" secondItem="Wdi-04-Dko" secondAttribute="top" constant="24" id="aYd-qD-5SM"/>
+                            <constraint firstItem="Wdi-04-Dko" firstAttribute="trailing" secondItem="0dW-nD-XRQ" secondAttribute="trailing" constant="18" id="cMj-d9-TKW"/>
+                            <constraint firstItem="0dW-nD-XRQ" firstAttribute="leading" secondItem="Wdi-04-Dko" secondAttribute="leading" constant="18" id="eUP-1P-cZ6"/>
+                            <constraint firstItem="m9T-Fi-oYX" firstAttribute="centerX" secondItem="Wdi-04-Dko" secondAttribute="centerX" id="zGd-8t-T54"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="V4A-9Y-3Ja"/>
                 </viewController>
@@ -53,6 +102,12 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
