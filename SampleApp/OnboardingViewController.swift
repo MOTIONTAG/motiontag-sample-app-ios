@@ -11,8 +11,9 @@ import UIKit
 class OnboardingViewController: UIViewController {
 
     @IBOutlet weak var locationButton: UIButton!
-
     @IBOutlet weak var activityButton: UIButton!
+    @IBOutlet weak var endOnboardingButton: UIButton!
+
     
     private lazy var permissions: Permissions = {
         let manager = Permissions()
@@ -28,11 +29,17 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func locationAuthTapped(_ sender: Any) {
+        locationButton.isEnabled = false
         permissions.obtainLocationPermission()
     }
 
     @IBAction func activityAuthTapped(_ sender: Any) {
+        activityButton.isEnabled = false
         permissions.obtainMotionActivityPermission()
+    }
+
+    @IBAction func endOnboardingTapped(_ sender: Any) {
+        
     }
 }
 
