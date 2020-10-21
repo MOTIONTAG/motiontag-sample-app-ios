@@ -10,8 +10,6 @@ import UIKit
 
 class MainViewController: IndicatorViewController {
 
-    // Must be replaced with a valid token: https://api.motion-tag.de/developer/
-    private let userJwtToken = "User's JWT token"
     private var appDelegate: AppDelegate?
 
     @IBOutlet weak var trackingSwitch: UISwitch!
@@ -34,21 +32,16 @@ class MainViewController: IndicatorViewController {
         }
     }
 
-    @objc private func switchValueDidChange(sender: UISwitch!) {
+    @IBAction func trackingSwitchToggled(_ sender: Any) {
         if let motionTag = appDelegate?.motionTag {
-            if sender.isOn {
-                UserDefaults.standard.set(userJwtToken, forKey: Constants.MT_USER_TOKEN_KEY)
-                motionTag.start(withToken: userJwtToken)
+            if trackingSwitch.isOn {
+                motionTag.start(withToken: PersistenceLayer.token)
                 print("after motionTag.start motionTag.isTrackingActive \(motionTag.isTrackingActive)")
             } else {
                 motionTag.stop()
                 print("after motionTag.stop motionTag.isTrackingActive \(motionTag.isTrackingActive)")
             }
         }
-    }
-
-    @IBAction func trackingSwitchToggled(_ sender: Any) {
-        
     }
 }
 

@@ -28,7 +28,7 @@
                                         <fragment content="Obtain Location Authorization">
                                             <attributes>
                                                 <color key="NSColor" systemColor="systemBlueColor"/>
-                                                <font key="NSFont" metaFont="system" size="24"/>
+                                                <font key="NSFont" size="24" name="SFProDisplay-Regular"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -52,7 +52,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="Obtain Motion &amp; Activity Permission">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="24"/>
+                                                <font key="NSFont" size="24" name="SFProDisplay-Regular"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -76,7 +76,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="End Onboarding ">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="24"/>
+                                                <font key="NSFont" size="24" name="SFProDisplay-Regular"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -91,12 +91,39 @@
                                     <action selector="endOnboardingTapped:" destination="5ez-LV-j9S" eventType="touchUpInside" id="uYg-VH-gHf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7p-v9-fq4" userLabel="loginBtn">
+                                <rect key="frame" x="18" y="392" width="378" height="72"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="Msl-cP-GcP"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Login (get token)">
+                                            <attributes>
+                                                <font key="NSFont" size="24" name="SFProDisplay-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginTapped:" destination="5ez-LV-j9S" eventType="touchUpInside" id="nNd-rm-CMp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wdi-04-Dko"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="R7p-v9-fq4" firstAttribute="leading" secondItem="Wdi-04-Dko" secondAttribute="leading" constant="18" id="38v-Ji-sKk"/>
                             <constraint firstItem="Wdi-04-Dko" firstAttribute="trailing" secondItem="09A-HM-blc" secondAttribute="trailing" constant="18" id="Bwo-oP-VG8"/>
                             <constraint firstItem="0dW-nD-XRQ" firstAttribute="top" secondItem="09A-HM-blc" secondAttribute="bottom" constant="36" id="C1n-15-hUr"/>
+                            <constraint firstItem="Wdi-04-Dko" firstAttribute="trailing" secondItem="R7p-v9-fq4" secondAttribute="trailing" constant="18" id="ILa-Lg-bM0"/>
                             <constraint firstItem="09A-HM-blc" firstAttribute="leading" secondItem="Wdi-04-Dko" secondAttribute="leading" constant="18" id="O3X-sj-YkR"/>
                             <constraint firstItem="Wdi-04-Dko" firstAttribute="trailing" secondItem="m9T-Fi-oYX" secondAttribute="trailing" constant="18" id="Tv4-qr-XRe"/>
                             <constraint firstItem="m9T-Fi-oYX" firstAttribute="leading" secondItem="Wdi-04-Dko" secondAttribute="leading" constant="18" id="Wxz-fq-K0W"/>
@@ -104,6 +131,7 @@
                             <constraint firstItem="m9T-Fi-oYX" firstAttribute="top" secondItem="Wdi-04-Dko" secondAttribute="top" constant="24" id="aYd-qD-5SM"/>
                             <constraint firstItem="Wdi-04-Dko" firstAttribute="trailing" secondItem="0dW-nD-XRQ" secondAttribute="trailing" constant="18" id="cMj-d9-TKW"/>
                             <constraint firstItem="0dW-nD-XRQ" firstAttribute="leading" secondItem="Wdi-04-Dko" secondAttribute="leading" constant="18" id="eUP-1P-cZ6"/>
+                            <constraint firstItem="R7p-v9-fq4" firstAttribute="top" secondItem="0dW-nD-XRQ" secondAttribute="bottom" constant="36" id="lh4-fa-ccx"/>
                             <constraint firstItem="09A-HM-blc" firstAttribute="top" secondItem="m9T-Fi-oYX" secondAttribute="bottom" constant="36" id="nB6-6N-oQi"/>
                             <constraint firstItem="m9T-Fi-oYX" firstAttribute="centerX" secondItem="Wdi-04-Dko" secondAttribute="centerX" id="zGd-8t-T54"/>
                         </constraints>
@@ -113,6 +141,7 @@
                         <outlet property="activityButton" destination="09A-HM-blc" id="PPG-yV-xeB"/>
                         <outlet property="endOnboardingButton" destination="0dW-nD-XRQ" id="maa-Lt-Uld"/>
                         <outlet property="locationButton" destination="m9T-Fi-oYX" id="Kev-wD-06P"/>
+                        <outlet property="loginButton" destination="R7p-v9-fq4" id="9FF-Ss-Q7b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtz-LJ-yy4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

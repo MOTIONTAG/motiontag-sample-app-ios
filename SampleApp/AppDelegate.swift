@@ -6,16 +6,11 @@
 //  Copyright © 2020 MotionTag GmbH. All rights reserved.
 //
 
-import MotionTagSDK
 import UIKit
+import MotionTagSDK
 
 protocol SetupFinishDelegate: class {
     func didFinishSetup()
-}
-
-struct Constants {
-    static let MT_USER_TOKEN_KEY = "MT_USER_TOKEN_KEY"
-    static let MT_ONBOARDING_OVER_KEY = "MT_ONBOARDING_OVER_KEY"
 }
 
 @UIApplicationMain
@@ -32,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func initMainWindow() {
-        if UserDefaults.standard.bool(forKey: Constants.MT_ONBOARDING_OVER_KEY) {
+        if PersistenceLayer.isOnboardingOver {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
             window?.rootViewController = viewController
@@ -48,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func initMotionTagSDK() {
         let settings: [String: AnyObject] = [kMTDataTransferMode: DataTransferMode.wifiAnd3G.rawValue as AnyObject,
                                              kMTBatterySavingsMode: true as AnyObject]
-        let token = UserDefaults.standard.string(forKey: Constants.MT_USER_TOKEN_KEY)
+        let token = PersistenceLayer.token
         motionTag = MotionTagCore.sharedInstance(withToken: token, settings: settings, completion: {
             // The SDK initialization can take some time to finish (e.g.: database migration) therefore it is recommended to use a delegate here to notify when it is done
             self.isSetupFinished = true
@@ -76,7 +71,6 @@ extension AppDelegate: MotionTagDelegate {
 
 extension AppDelegate: OnboardingCompleteDelegage {
     func onboardingDidEnd() {
-        UserDefaults.standard.set(true, forKey: Constants.MT_ONBOARDING_OVER_KEY)
         initMainWindow()
     }
 }
