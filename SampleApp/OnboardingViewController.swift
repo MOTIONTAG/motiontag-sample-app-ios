@@ -17,10 +17,10 @@ class OnboardingViewController: UIViewController {
     // Must be replaced with a valid token: https://api.motion-tag.de/developer/
     private let userJwtToken = "User's JWT token"
 
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var activityButton: UIButton!
     @IBOutlet weak var endOnboardingButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
 
     weak var delegate: OnboardingCompleteDelegage?
     
@@ -36,7 +36,13 @@ class OnboardingViewController: UIViewController {
         title = "Onboarding"
         view.backgroundColor = .white
     }
-    
+
+    @IBAction func loginTapped(_ sender: Any) {
+        loginButton.isEnabled = false
+        loginButton.backgroundColor = .green
+        PersistenceLayer.token = userJwtToken
+    }
+
     @IBAction func locationAuthTapped(_ sender: Any) {
         locationButton.isEnabled = false
         permissions.obtainLocationPermission()
@@ -52,12 +58,6 @@ class OnboardingViewController: UIViewController {
         if let delegate = delegate {
             delegate.onboardingDidEnd()
         }
-    }
-
-    @IBAction func loginTapped(_ sender: Any) {
-        loginButton.isEnabled = false
-        loginButton.backgroundColor = .green
-        PersistenceLayer.token = userJwtToken
     }
 }
 
