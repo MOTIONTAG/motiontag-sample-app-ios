@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func initMainWindow() {
         if UserDefaults.standard.bool(forKey: Constants.MT_ONBOARDING_OVER_KEY) {
-            let viewController = MainViewController()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
             window?.rootViewController = viewController
         } else {
             let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)

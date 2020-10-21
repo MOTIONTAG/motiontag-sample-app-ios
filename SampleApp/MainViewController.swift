@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: IndicatorViewController, SetupFinishDelegate {
+class MainViewController: IndicatorViewController {
 
     // Must be replaced with a valid token: https://api.motion-tag.de/developer/
     private let userJwtToken = "User's JWT token"
@@ -34,41 +34,6 @@ class MainViewController: IndicatorViewController, SetupFinishDelegate {
         }
     }
 
-    func didFinishSetup() {
-        hideProgressIndicator()
-        initTrackingControls()
-    }
-
-    private func initTrackingControls() {
-        let trackingLabel = buildTrackingLabel()
-        let trackingSwitch = buildTrackingSwitch()
-        let stackview = UIStackView()
-        stackview.axis = .horizontal
-        stackview.spacing = 20
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        stackview.addArrangedSubview(trackingLabel)
-        stackview.addArrangedSubview(trackingSwitch)
-        view.addSubview(stackview)
-        stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    }
-
-    private func buildTrackingLabel() -> UILabel {
-        let trackingLabel = UILabel()
-        trackingLabel.textColor = .black
-        trackingLabel.text = "Tracking active"
-        trackingLabel.translatesAutoresizingMaskIntoConstraints = false
-        return trackingLabel
-    }
-
-    private func buildTrackingSwitch() -> UISwitch {
-        let trackingSwitch = UISwitch()
-        trackingSwitch.isOn = appDelegate?.motionTag?.isTrackingActive ?? false
-        trackingSwitch.addTarget(self, action: #selector(switchValueDidChange(sender:)), for: .valueChanged)
-        trackingSwitch.translatesAutoresizingMaskIntoConstraints = false
-        return trackingSwitch
-    }
-
     @objc private func switchValueDidChange(sender: UISwitch!) {
         if let motionTag = appDelegate?.motionTag {
             if sender.isOn {
@@ -83,6 +48,13 @@ class MainViewController: IndicatorViewController, SetupFinishDelegate {
     }
 
     @IBAction func trackingSwitchToggled(_ sender: Any) {
+        
     }
-    
+}
+
+extension MainViewController: SetupFinishDelegate {
+    func didFinishSetup() {
+        hideProgressIndicator()
+        trackingSwitch.isOn = appDelegate?.motionTag?.isTrackingActive ?? false
+    }
 }
