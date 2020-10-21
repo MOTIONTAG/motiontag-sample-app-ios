@@ -14,6 +14,8 @@ class MainViewController: IndicatorViewController, SetupFinishDelegate {
     private let userJwtToken = "User's JWT token"
     private var appDelegate: AppDelegate?
 
+    @IBOutlet weak var trackingSwitch: UISwitch!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -79,4 +81,8 @@ class MainViewController: IndicatorViewController, SetupFinishDelegate {
             }
         }
     }
+
+    @IBAction func trackingSwitchToggled(_ sender: Any) {
+    }
+    
 }
