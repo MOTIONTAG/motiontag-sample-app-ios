@@ -9,46 +9,40 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
-    private var appDelegate: AppDelegate?
-
+    
+    private lazy var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var trackingSwitch: UISwitch!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        appDelegate = UIApplication.shared.delegate as? AppDelegate
-//        showProgressIndicator()
-        setSetupFinishDelegate()
-    }
-
-    private func setSetupFinishDelegate() {
-        if let appDelegate = appDelegate {
-            if appDelegate.isSetupFinished {
-                didFinishSetup()
-            } else {
-                appDelegate.setupFinishDelegate = self
-            }
+        if appDelegate.isSetupFinished {
+            didFinishSetup()
+        } else {
+            appDelegate.setupFinishDelegate = self
         }
     }
-
+    
     @IBAction func trackingSwitchToggled(_ sender: Any) {
-        if let motionTag = appDelegate?.motionTag {
-            if trackingSwitch.isOn {
-                motionTag.start(withToken: PersistenceLayer.token)
-                print("after motionTag.start motionTag.isTrackingActive \(motionTag.isTrackingActive)")
-            } else {
-                motionTag.stop()
-                print("after motionTag.stop motionTag.isTrackingActive \(motionTag.isTrackingActive)")
-            }
+        guard let motionTag = appDelegate.motionTag else {
+            return
+        }
+        if trackingSwitch.isOn {
+            motionTag.start(withToken: PersistenceLayer.token)
+            print("after motionTag.start motionTag.isTrackingActive \(motionTag.isTrackingActive)")
+        } else {
+            motionTag.stop()
+            print("after motionTag.stop motionTag.isTrackingActive \(motionTag.isTrackingActive)")
         }
     }
+    
 }
 
 extension MainViewController: SetupFinishDelegate {
     func didFinishSetup() {
         activityIndicatorView.stopAnimating()
-        trackingSwitch.isOn = appDelegate?.motionTag?.isTrackingActive ?? false
+        trackingSwitch.isOn = appDelegate.motionTag?.isTrackingActive ?? false
     }
 }
