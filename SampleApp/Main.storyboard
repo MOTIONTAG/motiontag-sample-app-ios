@@ -29,17 +29,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ut1-8U-Q6J">
+                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Way-z7-OCi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="REk-JB-rYH" firstAttribute="leading" secondItem="Way-z7-OCi" secondAttribute="leading" constant="24" id="0Rn-Ta-kcq"/>
                             <constraint firstItem="YtV-bG-zsH" firstAttribute="leading" secondItem="REk-JB-rYH" secondAttribute="trailing" constant="36" id="DJw-RJ-mlN"/>
+                            <constraint firstItem="Ut1-8U-Q6J" firstAttribute="centerY" secondItem="Way-z7-OCi" secondAttribute="centerY" id="FNE-cU-ZWI"/>
                             <constraint firstItem="REk-JB-rYH" firstAttribute="centerY" secondItem="YtV-bG-zsH" secondAttribute="centerY" id="GEd-qa-IN2"/>
+                            <constraint firstItem="Ut1-8U-Q6J" firstAttribute="centerX" secondItem="Way-z7-OCi" secondAttribute="centerX" id="tOU-rE-pa4"/>
                             <constraint firstItem="REk-JB-rYH" firstAttribute="top" secondItem="Way-z7-OCi" secondAttribute="top" constant="205" id="xHX-xC-vhL"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="Ut1-8U-Q6J" id="Btr-44-Gqv"/>
                         <outlet property="trackingSwitch" destination="YtV-bG-zsH" id="C72-Po-aML"/>
                     </connections>
                 </viewController>

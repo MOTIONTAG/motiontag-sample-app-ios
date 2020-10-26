@@ -14,7 +14,6 @@
 		8D93F4F925401C5C0050C8CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D93F4F825401C5C0050C8CD /* Main.storyboard */; };
 		8D93F4FF25403AFB0050C8CD /* PersistenceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F4FE25403AFB0050C8CD /* PersistenceLayer.swift */; };
 		AF92F8CF2434935700D55FEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF92F8CD2434935700D55FEA /* LaunchScreen.storyboard */; };
-		AF92F8D12434D73800D55FEA /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF92F8D02434D73800D55FEA /* IndicatorViewController.swift */; };
 		AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5CF24347C02009207DD /* AppDelegate.swift */; };
 		AFDEA5D424347C02009207DD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5D324347C02009207DD /* MainViewController.swift */; };
 		AFDEA5D924347C05009207DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDEA5D824347C05009207DD /* Assets.xcassets */; };
@@ -29,7 +28,6 @@
 		8D93F4FE25403AFB0050C8CD /* PersistenceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLayer.swift; sourceTree = "<group>"; };
 		91BDAE5CAEC889592C94BF53 /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF92F8CE2434935700D55FEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AF92F8D02434D73800D55FEA /* IndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
 		AFDEA5CC24347C02009207DD /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDEA5CF24347C02009207DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFDEA5D324347C02009207DD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -82,15 +80,14 @@
 			children = (
 				AF92F8CD2434935700D55FEA /* LaunchScreen.storyboard */,
 				AFDEA5CF24347C02009207DD /* AppDelegate.swift */,
+				8D93F4C3253DDF380050C8CD /* OnboardingViewController.swift */,
+				8D93F4FE25403AFB0050C8CD /* PersistenceLayer.swift */,
+				8D787CB8253EFA090057CE26 /* Permissions.swift */,
 				AFDEA5D324347C02009207DD /* MainViewController.swift */,
 				AFDEA5D824347C05009207DD /* Assets.xcassets */,
 				AFDEA5DD24347C05009207DD /* Info.plist */,
 				8D93F4BF253DDE4B0050C8CD /* Onboarding.storyboard */,
 				8D93F4F825401C5C0050C8CD /* Main.storyboard */,
-				8D93F4C3253DDF380050C8CD /* OnboardingViewController.swift */,
-				8D787CB8253EFA090057CE26 /* Permissions.swift */,
-				AF92F8D02434D73800D55FEA /* IndicatorViewController.swift */,
-				8D93F4FE25403AFB0050C8CD /* PersistenceLayer.swift */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -220,7 +217,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFDEA5D424347C02009207DD /* MainViewController.swift in Sources */,
-				AF92F8D12434D73800D55FEA /* IndicatorViewController.swift in Sources */,
 				8D93F4C4253DDF380050C8CD /* OnboardingViewController.swift in Sources */,
 				AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */,
 				8D787CB9253EFA090057CE26 /* Permissions.swift in Sources */,

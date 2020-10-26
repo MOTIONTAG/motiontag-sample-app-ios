@@ -8,17 +8,18 @@
 
 import UIKit
 
-class MainViewController: IndicatorViewController {
+class MainViewController: UIViewController {
 
     private var appDelegate: AppDelegate?
 
     @IBOutlet weak var trackingSwitch: UISwitch!
-
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         appDelegate = UIApplication.shared.delegate as? AppDelegate
-        showProgressIndicator()
+//        showProgressIndicator()
         setSetupFinishDelegate()
     }
 
@@ -47,7 +48,7 @@ class MainViewController: IndicatorViewController {
 
 extension MainViewController: SetupFinishDelegate {
     func didFinishSetup() {
-        hideProgressIndicator()
+        activityIndicatorView.stopAnimating()
         trackingSwitch.isOn = appDelegate?.motionTag?.isTrackingActive ?? false
     }
 }
