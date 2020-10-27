@@ -31,10 +31,8 @@ class MainViewController: UIViewController {
         }
         if trackingSwitch.isOn {
             motionTag.start(withToken: PersistenceLayer.token)
-            print("after motionTag.start motionTag.isTrackingActive \(motionTag.isTrackingActive)")
         } else {
             motionTag.stop()
-            print("after motionTag.stop motionTag.isTrackingActive \(motionTag.isTrackingActive)")
         }
     }
     

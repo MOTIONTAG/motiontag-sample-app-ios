@@ -27,7 +27,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="Login (get token)">
                                             <attributes>
-                                                <font key="NSFont" size="24" name="SFProDisplay-Regular"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -53,7 +53,7 @@
                                         <fragment content="Obtain Location Authorization">
                                             <attributes>
                                                 <color key="NSColor" systemColor="systemBlueColor"/>
-                                                <font key="NSFont" size="24" name="SFProDisplay-Regular"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -77,7 +77,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="Obtain Motion &amp; Activity Permission">
                                             <attributes>
-                                                <font key="NSFont" size="24" name="SFProDisplay-Regular"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -101,7 +101,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="End Onboarding ">
                                             <attributes>
-                                                <font key="NSFont" size="24" name="SFProDisplay-Regular"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
