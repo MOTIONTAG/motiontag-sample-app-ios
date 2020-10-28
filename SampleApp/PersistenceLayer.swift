@@ -2,7 +2,7 @@
 //  PersistenceLayer.swift
 //  SampleApp
 //
-//  Created by Kian on 2020-10-21.
+//  Created by Kian Mehravaran on 2020-10-21.
 //  Copyright © 2020 MotionTag GmbH. All rights reserved.
 //
 

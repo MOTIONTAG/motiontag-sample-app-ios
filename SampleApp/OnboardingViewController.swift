@@ -2,7 +2,7 @@
 //  OnboardingViewController.swift
 //  SampleApp
 //
-//  Created by Kian on 2020-10-19.
+//  Created by Kian Mehravaran on 2020-10-19.
 //  Copyright © 2020 MotionTag GmbH. All rights reserved.
 //
 
