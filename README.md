@@ -1,4 +1,4 @@
-# # iOS sample app for the MotionTag Mobility & Location Analytics SDK
+# iOS sample app for the MotionTag Mobility & Location Analytics SDK
 
 The MotionTag Mobility & Location Analytics SDK enables to collect raw sensor data of the telephone in
 a battery efficient way. This data is then transmitted to the MotionTag back-end system (ISO 27001 certified).
