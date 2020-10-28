@@ -22,20 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         initMotionTagSDK()
-        initMainWindow()
+        setupView()
         return true
     }
 
-    private func initMainWindow() {
+    private func setupView() {
         if PersistenceLayer.isOnboardingOver {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-            window?.rootViewController = viewController
+            window?.rootViewController = MainViewController.viewController
         } else {
-            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
-            viewController.delegate = self
-            window?.rootViewController = viewController
+            let onboardingViewControler = OnboardingViewController.viewController
+            onboardingViewControler.delegate = self
+            window?.rootViewController = onboardingViewControler
         }
         window?.makeKeyAndVisible()
     }
@@ -71,6 +68,6 @@ extension AppDelegate: MotionTagDelegate {
 
 extension AppDelegate: OnboardingCompleteDelegage {
     func onboardingDidEnd() {
-        initMainWindow()
+        setupView()
     }
 }

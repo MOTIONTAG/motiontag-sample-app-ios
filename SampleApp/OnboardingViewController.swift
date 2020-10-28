@@ -55,9 +55,7 @@ class OnboardingViewController: UIViewController {
 
     @IBAction func endOnboardingTapped(_ sender: Any) {
         PersistenceLayer.isOnboardingOver = true
-        if let delegate = delegate {
-            delegate.onboardingDidEnd()
-        }
+        delegate?.onboardingDidEnd()
     }
 }
 
@@ -70,5 +68,12 @@ extension OnboardingViewController: LocationAuthorizationDelegate {
 extension OnboardingViewController: ActivityAuthorizationDelegate {
     func didObtainRequiredActivityAuthorization(result: Bool) {
         activityButton.backgroundColor = result ? .green : .red
+    }
+}
+
+extension OnboardingViewController {
+    static var viewController: OnboardingViewController {
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
     }
 }

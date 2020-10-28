@@ -35,12 +35,18 @@ class MainViewController: UIViewController {
             motionTag.stop()
         }
     }
-    
 }
 
 extension MainViewController: SetupFinishDelegate {
     func didFinishSetup() {
         activityIndicatorView.stopAnimating()
         trackingSwitch.isOn = appDelegate.motionTag?.isTrackingActive ?? false
+    }
+}
+
+extension MainViewController {
+    static var viewController: MainViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
     }
 }
