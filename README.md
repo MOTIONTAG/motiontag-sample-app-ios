@@ -1,4 +1,4 @@
-## iOS sample app for the MotionTag Mobility & Location Analytics SDK
+# # iOS sample app for the MotionTag Mobility & Location Analytics SDK
 
 The MotionTag Mobility & Location Analytics SDK enables to collect raw sensor data of the telephone in
 a battery efficient way. This data is then transmitted to the MotionTag back-end system (ISO 27001 certified).
@@ -34,3 +34,10 @@ More information can be found on our website.
 5. Navigate to `Signing & Capabilities` section inside Xcode and update the Team settings
 6. Update `userToken` with a valid token
 7. Run the project
+
+Notes:
+
+- The SDK does not ask for location or motion/activity permissions, and they need to be obtained before starting the SDK
+- The Login button persists the given token in UserDefaults. It is important that this token is retrieved from UserDefaults 
+and passed to the SDK on app startup in the AppDelegate's ```didFinishLaunchingWithOptions``` as shown.
+
