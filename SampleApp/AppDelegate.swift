@@ -66,7 +66,7 @@ extension AppDelegate: MotionTagDelegate {
     }
 }
 
-extension AppDelegate: OnboardingCompleteDelegage {
+extension AppDelegate: OnboardingCompleteDelegate {
     func onboardingDidEnd() {
         setupView()
     }

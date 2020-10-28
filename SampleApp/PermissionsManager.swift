@@ -9,18 +9,19 @@
 import CoreLocation
 import CoreMotion
 
-protocol LocationAuthorizationDelegate: class {
-    func didObtainRequiredLocationAuthorization(result: Bool)
+enum AuthorizationType: CaseIterable {
+    case login
+    case location
+    case activity
 }
 
-protocol ActivityAuthorizationDelegate: class {
-    func didObtainRequiredActivityAuthorization(result: Bool)
+protocol AuthorizationDelegate: class {
+    func didObtainRequiredAuthorization(result: Bool, type: AuthorizationType)
 }
 
 class PermissionsManager: NSObject {
 
-    weak var locationDelegate: LocationAuthorizationDelegate?
-    weak var activityDelegate: ActivityAuthorizationDelegate?
+    weak var delegate: AuthorizationDelegate?
 
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -43,28 +44,24 @@ class PermissionsManager: NSObject {
     }
 
     func obtainMotionActivityPermission() {
-        motionManager.queryActivityStarting(from: Date(), to: Date(), to: OperationQueue.main) { [weak self] _, error in
-            if let delegate = self?.activityDelegate {
-                if CMMotionActivityManager.isActivityAvailable() {
-                    delegate.didObtainRequiredActivityAuthorization(result: error == nil)
-                } else {
-                    delegate.didObtainRequiredActivityAuthorization(result: true)
-                }
+        motionManager.queryActivityStarting(from: Date(), to: Date(), to: OperationQueue.main) { [unowned self] _, error in
+            if CMMotionActivityManager.isActivityAvailable() {
+                self.delegate?.didObtainRequiredAuthorization(result: error == nil, type: .activity)
+            } else {
+                self.delegate?.didObtainRequiredAuthorization(result: true, type: .activity)
             }
         }
     }
 }
 
 extension PermissionsManager: CLLocationManagerDelegate {
-    
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if let delegate = locationDelegate {
-            var result = false
-            if case .authorizedAlways = status {
-                result = true
-            }
-            delegate.didObtainRequiredLocationAuthorization(result: result)
+        var result = false
+        if case .authorizedAlways = status {
+            result = true
         }
+        delegate?.didObtainRequiredAuthorization(result: result, type: .location)
         if case .authorizedWhenInUse = status {
             locationManager.requestAlwaysAuthorization()
         }

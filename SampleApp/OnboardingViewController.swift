@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OnboardingCompleteDelegage: class {
+protocol OnboardingCompleteDelegate: class {
     func onboardingDidEnd()
 }
 
@@ -22,12 +22,12 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var activityButton: UIButton!
     @IBOutlet weak var endOnboardingButton: UIButton!
 
-    weak var delegate: OnboardingCompleteDelegage?
-    
+    weak var delegate: OnboardingCompleteDelegate?
+    private var permissionsSet: Set<AuthorizationType> = []
+
     private lazy var permissions: PermissionsManager = {
         let manager = PermissionsManager()
-        manager.locationDelegate = self
-        manager.activityDelegate = self
+        manager.delegate = self
         return manager
     }()
     
@@ -35,11 +35,12 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         title = "Onboarding"
         view.backgroundColor = .white
+        endOnboardingButton.isEnabled = false
     }
 
     @IBAction func loginTapped(_ sender: Any) {
         loginButton.isEnabled = false
-        loginButton.backgroundColor = .green
+        didObtainRequiredAuthorization(result: true, type: .login)
         PersistenceLayer.token = userJwtToken
     }
 
@@ -59,15 +60,20 @@ class OnboardingViewController: UIViewController {
     }
 }
 
-extension OnboardingViewController: LocationAuthorizationDelegate {
-    func didObtainRequiredLocationAuthorization(result: Bool) {
-        locationButton.backgroundColor = result ? .green : .red
-    }
-}
-
-extension OnboardingViewController: ActivityAuthorizationDelegate {
-    func didObtainRequiredActivityAuthorization(result: Bool) {
-        activityButton.backgroundColor = result ? .green : .red
+extension OnboardingViewController: AuthorizationDelegate {
+    func didObtainRequiredAuthorization(result: Bool, type: AuthorizationType) {
+        switch type {
+        case .location:
+            locationButton.backgroundColor = result ? .green : .red
+        case .activity:
+            activityButton.backgroundColor = result ? .green : .red
+        case .login:
+            loginButton.backgroundColor = result ? .green : .red
+        }
+        if result {
+            permissionsSet.insert(type)
+            endOnboardingButton.isEnabled = permissionsSet.count == AuthorizationType.allCases.count
+        }
     }
 }
 
