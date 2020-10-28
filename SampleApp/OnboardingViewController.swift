@@ -24,8 +24,8 @@ class OnboardingViewController: UIViewController {
 
     weak var delegate: OnboardingCompleteDelegage?
     
-    private lazy var permissions: Permissions = {
-        let manager = Permissions()
+    private lazy var permissions: PermissionsManager = {
+        let manager = PermissionsManager()
         manager.locationDelegate = self
         manager.activityDelegate = self
         return manager

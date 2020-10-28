@@ -1,5 +1,5 @@
 //
-//  Permissions.swift
+//  PermissionsManager.swift
 //  SampleApp
 //
 //  Created by Kian Mehravaran on 10/20/20.
@@ -17,7 +17,7 @@ protocol ActivityAuthorizationDelegate: class {
     func didObtainRequiredActivityAuthorization(result: Bool)
 }
 
-class Permissions: NSObject {
+class PermissionsManager: NSObject {
 
     weak var locationDelegate: LocationAuthorizationDelegate?
     weak var activityDelegate: ActivityAuthorizationDelegate?
@@ -55,7 +55,7 @@ class Permissions: NSObject {
     }
 }
 
-extension Permissions: CLLocationManagerDelegate {
+extension PermissionsManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if let delegate = locationDelegate {
