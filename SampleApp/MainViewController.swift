@@ -9,38 +9,38 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
-    private lazy var appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+
     @IBOutlet weak var trackingSwitch: UISwitch!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        if appDelegate.isSetupFinished {
+        trackingSwitch.isEnabled = false
+        LibraryLayer.shared.delegate = self
+        if LibraryLayer.shared.isSetupFinished {
             didFinishSetup()
-        } else {
-            appDelegate.setupFinishDelegate = self
         }
     }
-    
+
     @IBAction func trackingSwitchToggled(_ sender: Any) {
-        guard let motionTag = appDelegate.motionTag else {
-            return
-        }
         if trackingSwitch.isOn {
-            motionTag.start(withToken: PersistenceLayer.token)
+            LibraryLayer.shared.start()
         } else {
-            motionTag.stop()
+            LibraryLayer.shared.stop()
         }
     }
 }
 
-extension MainViewController: SetupFinishDelegate {
+extension MainViewController: LibraryLayerDelegate {
+
+    func didChangeTrackingStatus(isTracking: Bool) {
+        trackingSwitch.isOn = isTracking
+    }
+
     func didFinishSetup() {
         activityIndicatorView.stopAnimating()
-        trackingSwitch.isOn = appDelegate.motionTag?.isTrackingActive ?? false
+        trackingSwitch.isEnabled = true
     }
 }
 
