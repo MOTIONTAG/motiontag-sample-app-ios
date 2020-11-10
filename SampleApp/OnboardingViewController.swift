@@ -36,6 +36,7 @@ class OnboardingViewController: UIViewController {
         title = "Onboarding"
         view.backgroundColor = .white
         endOnboardingButton.isEnabled = false
+        endOnboardingButton.alpha = 0.5
     }
 
     @IBAction func loginTapped(_ sender: Any) {
@@ -72,7 +73,10 @@ extension OnboardingViewController: AuthorizationDelegate {
         }
         if result {
             permissionsSet.insert(type)
-            endOnboardingButton.isEnabled = permissionsSet.count == AuthorizationType.allCases.count
+            if permissionsSet.count == AuthorizationType.allCases.count {
+                endOnboardingButton.alpha = 1.0
+                endOnboardingButton.isEnabled = true
+            }
         }
     }
 }
