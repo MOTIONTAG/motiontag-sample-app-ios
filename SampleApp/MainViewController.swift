@@ -41,6 +41,7 @@ extension MainViewController: LibraryLayerDelegate {
     func didFinishSetup() {
         activityIndicatorView.stopAnimating()
         trackingSwitch.isEnabled = true
+        trackingSwitch.isOn = LibraryLayer.shared.trackingStatus
     }
 }
 

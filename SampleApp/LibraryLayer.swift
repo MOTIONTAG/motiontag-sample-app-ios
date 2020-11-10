@@ -15,8 +15,8 @@ protocol LibraryLayerDelegate: class {
 
 class LibraryLayer: NSObject {
 
-    var isSetupFinished = false
-    var trackingStatus = false
+    private(set) var isSetupFinished = false
+    private(set) var trackingStatus = false
 
     static var shared = LibraryLayer()
 
