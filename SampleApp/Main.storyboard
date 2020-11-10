@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main-->
+        <scene sceneID="jxv-3r-q9u">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" title="Main" id="Xk3-Xw-HO8" customClass="MainViewController" customModule="SampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mq9-BN-fwX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YtV-bG-zsH">
+                                <rect key="frame" x="205.5" y="245.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="trackingSwitchToggled:" destination="Xk3-Xw-HO8" eventType="valueChanged" id="iWQ-gh-8oM"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REk-JB-rYH">
+                                <rect key="frame" x="24" y="249" width="145.5" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ut1-8U-Q6J">
+                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Way-z7-OCi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="REk-JB-rYH" firstAttribute="leading" secondItem="Way-z7-OCi" secondAttribute="leading" constant="24" id="0Rn-Ta-kcq"/>
+                            <constraint firstItem="YtV-bG-zsH" firstAttribute="leading" secondItem="REk-JB-rYH" secondAttribute="trailing" constant="36" id="DJw-RJ-mlN"/>
+                            <constraint firstItem="Ut1-8U-Q6J" firstAttribute="centerY" secondItem="Way-z7-OCi" secondAttribute="centerY" id="FNE-cU-ZWI"/>
+                            <constraint firstItem="REk-JB-rYH" firstAttribute="centerY" secondItem="YtV-bG-zsH" secondAttribute="centerY" id="GEd-qa-IN2"/>
+                            <constraint firstItem="Ut1-8U-Q6J" firstAttribute="centerX" secondItem="Way-z7-OCi" secondAttribute="centerX" id="tOU-rE-pa4"/>
+                            <constraint firstItem="REk-JB-rYH" firstAttribute="top" secondItem="Way-z7-OCi" secondAttribute="top" constant="205" id="xHX-xC-vhL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="Ut1-8U-Q6J" id="Btr-44-Gqv"/>
+                        <outlet property="trackingSwitch" destination="YtV-bG-zsH" id="C72-Po-aML"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="03D-hh-ODb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="301" y="-40"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

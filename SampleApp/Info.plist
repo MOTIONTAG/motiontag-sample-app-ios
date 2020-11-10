@@ -20,11 +20,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>SampleApp uses location services for analysing travel behaviour.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>SampleApp uses location services for analysing travel behaviour.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>SampleApp uses location services for analysing travel behaviour.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>SampleApp uses motion usage for analysing travel behaviour.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
@@ -38,17 +41,7 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationUsageDescription</key>
-	<string>SampleApp uses location services for analysing travel behaviour.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>SampleApp uses location services for analysing travel behaviour.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>SampleApp uses location services for analysing travel behaviour.</string>
-	<key>NSMotionUsageDescription</key>
-	<string>SampleApp uses motion usage for analysing travel behaviour.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
