@@ -11,14 +11,12 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var trackingSwitch: UISwitch!
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        trackingSwitch.isEnabled = false
         LibraryLayer.shared.delegate = self
-        didFinishSetup()
+        trackingSwitch.isOn = LibraryLayer.shared.trackingStatus
     }
 
     @IBAction func trackingSwitchToggled(_ sender: Any) {
@@ -34,12 +32,6 @@ extension MainViewController: LibraryLayerDelegate {
 
     func didChangeTrackingStatus(isTracking: Bool) {
         trackingSwitch.isOn = isTracking
-    }
-
-    func didFinishSetup() {
-        activityIndicatorView.stopAnimating()
-        trackingSwitch.isEnabled = true
-        trackingSwitch.isOn = LibraryLayer.shared.trackingStatus
     }
 }
 

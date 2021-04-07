@@ -36,6 +36,7 @@ class LibraryLayer: NSObject {
         let settings = [kMTDataTransferMode: DataTransferMode.wifiAnd3G.rawValue as AnyObject, kMTBatterySavingsMode: true as AnyObject]
         motionTag = MotionTagCore.sharedInstance(withSettings: settings)
         motionTag.delegate = self
+        trackingStatus = MotionTagCore.sharedInstance(withSettings: nil).isTrackingActive
     }
 }
 
