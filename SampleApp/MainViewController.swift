@@ -18,9 +18,7 @@ class MainViewController: UIViewController {
         view.backgroundColor = .white
         trackingSwitch.isEnabled = false
         LibraryLayer.shared.delegate = self
-        if LibraryLayer.shared.isSetupFinished {
-            didFinishSetup()
-        }
+        didFinishSetup()
     }
 
     @IBAction func trackingSwitchToggled(_ sender: Any) {

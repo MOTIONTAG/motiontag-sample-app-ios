@@ -12,9 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
     lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
-    private var libraryLayer: LibraryLayer!
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // The SDK should be one of the first things initialized in the didFinishLaunchingWithOptions delegate
         _ = LibraryLayer.shared
         setupView()
         return true
