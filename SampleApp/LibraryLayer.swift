@@ -30,6 +30,10 @@ class LibraryLayer: NSObject {
         motionTag.stop()
         print("after motionTag.stop motionTag.isTrackingActive \(motionTag.isTrackingActive)")
     }
+
+    func handleEvents(forBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        motionTag.handleEvents(forBackgroundURLSession: identifier, completionHandler: completionHandler)
+    }
     
     private override init() {
         super.init()
