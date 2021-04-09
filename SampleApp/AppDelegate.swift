@@ -12,12 +12,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
     lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
-    private var libraryLayer: LibraryLayer!
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // The SDK should be one of the first things initialized in the "didFinishLaunchingWithOptions" delegate
         _ = LibraryLayer.shared
         setupView()
         return true
+    }
+
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        // The SDK must also be called in the "handleEventsForBackgroundURLSession" delegate
+        LibraryLayer.shared.handleEvents(forBackgroundURLSession: identifier, completionHandler: completionHandler)
     }
 
     private func setupView() {

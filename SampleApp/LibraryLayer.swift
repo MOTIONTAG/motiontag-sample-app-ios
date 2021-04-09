@@ -9,13 +9,11 @@
 import MotionTagSDK
 
 protocol LibraryLayerDelegate: class {
-    func didFinishSetup()
     func didChangeTrackingStatus(isTracking: Bool)
 }
 
 class LibraryLayer: NSObject {
 
-    private(set) var isSetupFinished = false
     private(set) var trackingStatus = false
 
     static var shared = LibraryLayer()
@@ -32,19 +30,19 @@ class LibraryLayer: NSObject {
         motionTag.stop()
         print("after motionTag.stop motionTag.isTrackingActive \(motionTag.isTrackingActive)")
     }
+
+    func handleEvents(forBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        motionTag.handleEvents(forBackgroundURLSession: identifier, completionHandler: completionHandler)
+    }
     
     private override init() {
         super.init()
         let settings = [kMTDataTransferMode: DataTransferMode.wifiAnd3G.rawValue as AnyObject, kMTBatterySavingsMode: true as AnyObject]
-        motionTag = MotionTagCore.sharedInstance(withToken: PersistenceLayer.token, settings: settings, completion: {
-            // The SDK initialization can take some time to finish (e.g.: database migration) therefore it is recommended to use a delegate here to notify when it is done
-            self.isSetupFinished = true
-            self.delegate?.didFinishSetup()
-        })
+        motionTag = MotionTagCore.sharedInstance(withSettings: settings)
         motionTag.delegate = self
+        trackingStatus = MotionTagCore.sharedInstance(withSettings: nil).isTrackingActive
     }
 }
-
 
 // MARK: MotionTagDelegate
 
@@ -57,11 +55,11 @@ extension LibraryLayer: MotionTagDelegate {
     }
 
     func locationAuthorizationStatusDidChange(_ status: CLAuthorizationStatus, precise: Bool) {
-        print("MotionTag SDK   CLAuthorizationStatus: \(status.rawValue) precise: \(precise)")
+        print("MotionTag SDK CLAuthorizationStatus: \(status.rawValue) precise: \(precise)")
     }
 
     func motionActivityAuthorized(_ authorized: Bool) {
-        print("MotionTag SDK   motionActivityAuthorized: \(authorized)")
+        print("MotionTag SDK motionActivityAuthorized: \(authorized)")
     }
 
     func didTrackLocation(_ location: CLLocation) {
