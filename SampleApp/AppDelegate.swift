@@ -29,9 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if PersistenceLayer.isOnboardingOver {
             window?.rootViewController = MainViewController.viewController
         } else {
-            let onboardingViewControler = OnboardingViewController.viewController
-            onboardingViewControler.delegate = self
-            window?.rootViewController = onboardingViewControler
+            let onboardingViewController = OnboardingViewController.viewController
+            onboardingViewController.delegate = self
+            window?.rootViewController = onboardingViewController
         }
         window?.makeKeyAndVisible()
     }
