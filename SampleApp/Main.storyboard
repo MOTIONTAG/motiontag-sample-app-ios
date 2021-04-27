@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,13 +29,36 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jes-c5-c5O" userLabel="LogoutButton">
+                                <rect key="frame" x="18" y="754" width="378" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="j7k-5z-sYO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Logout"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.corderRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="Xk3-Xw-HO8" eventType="touchUpInside" id="Zua-m5-5sL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Way-z7-OCi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="REk-JB-rYH" firstAttribute="leading" secondItem="Way-z7-OCi" secondAttribute="leading" constant="24" id="0Rn-Ta-kcq"/>
+                            <constraint firstItem="jes-c5-c5O" firstAttribute="centerX" secondItem="Mq9-BN-fwX" secondAttribute="centerX" id="2fc-cg-d2J"/>
+                            <constraint firstItem="Way-z7-OCi" firstAttribute="bottom" secondItem="jes-c5-c5O" secondAttribute="bottom" constant="36" id="9fS-rQ-Ymb"/>
                             <constraint firstItem="YtV-bG-zsH" firstAttribute="leading" secondItem="REk-JB-rYH" secondAttribute="trailing" constant="36" id="DJw-RJ-mlN"/>
                             <constraint firstItem="REk-JB-rYH" firstAttribute="centerY" secondItem="YtV-bG-zsH" secondAttribute="centerY" id="GEd-qa-IN2"/>
+                            <constraint firstItem="jes-c5-c5O" firstAttribute="leading" secondItem="Way-z7-OCi" secondAttribute="leading" constant="18" id="Rpa-qM-yxJ"/>
+                            <constraint firstItem="Way-z7-OCi" firstAttribute="trailing" secondItem="jes-c5-c5O" secondAttribute="trailing" constant="18" id="VJ1-Cf-wmL"/>
                             <constraint firstItem="REk-JB-rYH" firstAttribute="top" secondItem="Way-z7-OCi" secondAttribute="top" constant="205" id="xHX-xC-vhL"/>
                         </constraints>
                     </view>

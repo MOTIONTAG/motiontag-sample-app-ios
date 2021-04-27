@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LibraryLayer.shared.handleEvents(forBackgroundURLSession: identifier, completionHandler: completionHandler)
     }
 
-    private func setupView() {
+    func setupView() {
         if PersistenceLayer.isOnboardingOver {
             window?.rootViewController = MainViewController.viewController
         } else {

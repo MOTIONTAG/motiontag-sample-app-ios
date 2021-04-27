@@ -26,6 +26,15 @@ class MainViewController: UIViewController {
             LibraryLayer.shared.stop()
         }
     }
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        LibraryLayer.shared.stop()
+        LibraryLayer.shared.clearUserData {
+            DispatchQueue.main.async {
+                PersistenceLayer.isOnboardingOver = false
+                (UIApplication.shared.delegate as! AppDelegate).setupView()
+            }
+        }
+    }
 }
 
 extension MainViewController: LibraryLayerDelegate {
