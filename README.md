@@ -24,6 +24,8 @@ More information can be found on our website.
 
 **Changelog:** https://api.motion-tag.de/developer/ios_changelog
 
+**SDK License:** https://api.motion-tag.de/developer/sdk_test_license
+
 
 ## Starting the sample app
 
