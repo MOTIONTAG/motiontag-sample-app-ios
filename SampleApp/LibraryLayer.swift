@@ -34,7 +34,14 @@ class LibraryLayer: NSObject {
     func handleEvents(forBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
         motionTag.handleEvents(forBackgroundURLSession: identifier, completionHandler: completionHandler)
     }
-    
+
+    func clearUserData(completionHandler: @escaping () -> Void) {
+        motionTag.clearData {
+            print("cleared user data")
+            completionHandler()
+        }
+    }
+
     private override init() {
         super.init()
         let settings = [kMTDataTransferMode: DataTransferMode.wifiAnd3G.rawValue as AnyObject, kMTBatterySavingsMode: true as AnyObject]
