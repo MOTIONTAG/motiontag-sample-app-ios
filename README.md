@@ -30,10 +30,10 @@ More information can be found on our website.
 ## Starting the sample app
 
 1. Clone this repository
-2. In the root project folder, initialize the pods: `pod install` (Contact us in order to get access to the MOTIONTAG SDK framework)
+2. In the root project folder, initialize the pods: `pod install`
 3. Open `SampleApp.xcworkspace`
 4. Navigate to `Signing & Capabilities` section inside Xcode and update the Team settings
-5. Update `userJwtToken` with a valid token
+5. Update `userJwtToken` with a valid token (Please contact us in order to get a valid JWT token)
 6. Run the project
 
 Notes:
