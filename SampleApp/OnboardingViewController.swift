@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol OnboardingCompleteDelegate: class {
-    func onboardingDidEnd()
+protocol OnboardingCompleteDelegate: AnyObject {
+    func onboardingDidEnd(with userToken: String)
 }
 
 class OnboardingViewController: UIViewController {
@@ -17,7 +17,6 @@ class OnboardingViewController: UIViewController {
     // Must be replaced with a valid token: https://api.motion-tag.de/developer/
     private let userJwtToken = "User's JWT token"
 
-    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var activityButton: UIButton!
     @IBOutlet weak var endOnboardingButton: UIButton!
@@ -39,12 +38,6 @@ class OnboardingViewController: UIViewController {
         endOnboardingButton.alpha = 0.5
     }
 
-    @IBAction func loginTapped(_ sender: Any) {
-        loginButton.isEnabled = false
-        didObtainRequiredAuthorization(result: true, type: .login)
-        PersistenceLayer.token = userJwtToken
-    }
-
     @IBAction func locationAuthTapped(_ sender: Any) {
         locationButton.isEnabled = false
         permissions.obtainLocationPermission()
@@ -57,7 +50,7 @@ class OnboardingViewController: UIViewController {
 
     @IBAction func endOnboardingTapped(_ sender: Any) {
         PersistenceLayer.isOnboardingOver = true
-        delegate?.onboardingDidEnd()
+        delegate?.onboardingDidEnd(with: userJwtToken)
     }
 }
 
@@ -68,8 +61,6 @@ extension OnboardingViewController: AuthorizationDelegate {
             locationButton.backgroundColor = result ? .green : .red
         case .activity:
             activityButton.backgroundColor = result ? .green : .red
-        case .login:
-            loginButton.backgroundColor = result ? .green : .red
         }
         if result {
             permissionsSet.insert(type)
