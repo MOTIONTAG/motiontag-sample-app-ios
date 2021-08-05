@@ -92,7 +92,8 @@ extension LibraryLayer: MotionTagDelegate {
         print("MotionTag SDK didTrackLocation - CLLocation: \(location)")
     }
 
-    func didTransmitData(timestamp: Date, lastEventTimestamp: Date) {
-        print("MotionTag SDK didTransmitData - timestamp: \(timestamp), lastEventTimestamp: \(lastEventTimestamp)")
-    }
+    func dataUploadWithTracked(from startDate: Date, to endDate: Date, didCompleteWithError error: Error?) {
+        let errorString = (error != nil) ? error.debugDescription : "no error"
+        print("MotionTag SDK didTransmitData - Events starting at: \(startDate), and ending at: \(endDate) with: \(errorString)")
+     }
 }
