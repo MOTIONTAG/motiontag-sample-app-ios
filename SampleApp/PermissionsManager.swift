@@ -10,12 +10,11 @@ import CoreLocation
 import CoreMotion
 
 enum AuthorizationType: CaseIterable {
-    case login
     case location
     case activity
 }
 
-protocol AuthorizationDelegate: class {
+protocol AuthorizationDelegate: AnyObject {
     func didObtainRequiredAuthorization(result: Bool, type: AuthorizationType)
 }
 

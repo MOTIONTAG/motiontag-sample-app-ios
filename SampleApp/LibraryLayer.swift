@@ -8,7 +8,7 @@
 
 import MotionTagSDK
 
-protocol LibraryLayerDelegate: class {
+protocol LibraryLayerDelegate: AnyObject {
     func didChangeTrackingStatus(isTracking: Bool)
 }
 
@@ -21,8 +21,17 @@ class LibraryLayer: NSObject {
     private var motionTag: MotionTag!
     weak var delegate: LibraryLayerDelegate?
 
+    var userToken: String {
+        get {
+            motionTag.userToken
+        }
+        set {
+            motionTag.userToken = newValue
+        }
+    }
+
     func start() {
-        motionTag.start(withToken: PersistenceLayer.token)
+        motionTag.start()
         print("after motionTag.start motionTag.isTrackingActive \(motionTag.isTrackingActive)")
     }
 
@@ -31,8 +40,14 @@ class LibraryLayer: NSObject {
         print("after motionTag.stop motionTag.isTrackingActive \(motionTag.isTrackingActive)")
     }
 
-    func handleEvents(forBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
-        motionTag.handleEvents(forBackgroundURLSession: identifier, completionHandler: completionHandler)
+    //Connect to your UI if needed. Not used in the Sample App
+    var wifiOnlyTransmission: Bool {
+        get {
+            motionTag.wifiOnlyDataTransfer
+        }
+        set {
+            motionTag.wifiOnlyDataTransfer = newValue
+        }
     }
 
     func clearUserData(completionHandler: @escaping () -> Void) {
@@ -42,12 +57,16 @@ class LibraryLayer: NSObject {
         }
     }
 
+    //call from the AppDelegate application(_:handleEventsForBackgroundURLSession:completionHandler:) method
+    func handleEvents(forBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        motionTag.handleEvents(forBackgroundURLSession: identifier, completionHandler: completionHandler)
+    }
+
     private override init() {
         super.init()
-        let settings = [kMTDataTransferMode: DataTransferMode.wifiAnd3G.rawValue as AnyObject, kMTBatterySavingsMode: true as AnyObject]
-        motionTag = MotionTagCore.sharedInstance(withSettings: settings)
+        motionTag = MotionTagCore.sharedInstance
         motionTag.delegate = self
-        trackingStatus = MotionTagCore.sharedInstance(withSettings: nil).isTrackingActive
+        trackingStatus = MotionTagCore.sharedInstance.isTrackingActive
     }
 }
 
@@ -73,7 +92,8 @@ extension LibraryLayer: MotionTagDelegate {
         print("MotionTag SDK didTrackLocation - CLLocation: \(location)")
     }
 
-    func didTransmitData(timestamp: Date, lastEventTimestamp: Date) {
-        print("MotionTag SDK didTransmitData - timestamp: \(timestamp), lastEventTimestamp: \(lastEventTimestamp)")
-    }
+    func dataUploadWithTracked(from startDate: Date, to endDate: Date, didCompleteWithError error: Error?) {
+        let errorString = (error != nil) ? error.debugDescription : "no error"
+        print("MotionTag SDK didTransmitData - Events starting at: \(startDate), and ending at: \(endDate) with: \(errorString)")
+     }
 }
