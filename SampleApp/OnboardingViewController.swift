@@ -15,7 +15,7 @@ protocol OnboardingCompleteDelegate: AnyObject {
 class OnboardingViewController: UIViewController {
 
     // Must be replaced with a valid token: https://api.motion-tag.de/developer/
-    private let userJwtToken = "User's JWT token"
+    private let userToken = "User's JWT"
 
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var activityButton: UIButton!
@@ -50,7 +50,7 @@ class OnboardingViewController: UIViewController {
 
     @IBAction func endOnboardingTapped(_ sender: Any) {
         PersistenceLayer.isOnboardingOver = true
-        delegate?.onboardingDidEnd(with: userJwtToken)
+        delegate?.onboardingDidEnd(with: userToken)
     }
 }
 
