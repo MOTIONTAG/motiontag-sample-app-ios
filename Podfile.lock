@@ -1,22 +1,22 @@
 PODS:
-  - MotionTagSDK (4.0.0)
+  - MotionTagSDK (4.1.0)
 
 DEPENDENCIES:
-  - MotionTagSDK (from `https://github.com/MOTIONTAG/motiontag-sdk-ios-releases.git`, tag `v/4.0.0`)
+  - MotionTagSDK (from `https://github.com/MOTIONTAG/motiontag-sdk-ios-releases.git`, tag `v/4.1.0`)
 
 EXTERNAL SOURCES:
   MotionTagSDK:
     :git: https://github.com/MOTIONTAG/motiontag-sdk-ios-releases.git
-    :tag: v/4.0.0
+    :tag: v/4.1.0
 
 CHECKOUT OPTIONS:
   MotionTagSDK:
     :git: https://github.com/MOTIONTAG/motiontag-sdk-ios-releases.git
-    :tag: v/4.0.0
+    :tag: v/4.1.0
 
 SPEC CHECKSUMS:
-  MotionTagSDK: 751e02118d93b4d42fdc555dc0eef67e5a0a6c92
+  MotionTagSDK: 0499b6238ca1be68bb1c1849e2453bee81ea3bdf
 
-PODFILE CHECKSUM: 21451cf5990a6c4b9618cfd2a9187f4cea02f227
+PODFILE CHECKSUM: 4e965fcaf30ecff24a9a3d1aed9995f17df15e4d
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
