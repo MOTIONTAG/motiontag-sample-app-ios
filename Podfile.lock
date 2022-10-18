@@ -1,16 +1,16 @@
 PODS:
-  - MotionTagSDK (4.3.1)
+  - MotionTagSDK (5.0.0)
 
 DEPENDENCIES:
-  - MotionTagSDK (~> 4.3.1)
+  - MotionTagSDK (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
     - MotionTagSDK
 
 SPEC CHECKSUMS:
-  MotionTagSDK: 169133388e08fc37c96adfbf87cbad18e23ef967
+  MotionTagSDK: fb83d681d453cf7cf9e3b6aca7499c377fe9293e
 
-PODFILE CHECKSUM: d987dcda2d0885c9f89b7176a667d9ebf9c413ea
+PODFILE CHECKSUM: 0b6fb0dccc190fefb720c0978f741311e62e4857
 
 COCOAPODS: 1.11.3
