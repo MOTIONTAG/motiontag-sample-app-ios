@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D41A20825597F110069082D /* LibraryLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D41A20725597F110069082D /* LibraryLayer.swift */; };
 		8D787CB9253EFA090057CE26 /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D787CB8253EFA090057CE26 /* PermissionsManager.swift */; };
 		8D93F4C0253DDE4C0050C8CD /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D93F4BF253DDE4B0050C8CD /* Onboarding.storyboard */; };
 		8D93F4C4253DDF380050C8CD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F4C3253DDF380050C8CD /* OnboardingViewController.swift */; };
@@ -23,7 +22,6 @@
 /* Begin PBXFileReference section */
 		14D3718E27BA40DD3648E652 /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		5E55E80BAAF9512599407123 /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
-		8D41A20725597F110069082D /* LibraryLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryLayer.swift; sourceTree = "<group>"; };
 		8D787CB8253EFA090057CE26 /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
 		8D93F4BF253DDE4B0050C8CD /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		8D93F4C3253DDF380050C8CD /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 			children = (
 				AF92F8CD2434935700D55FEA /* LaunchScreen.storyboard */,
 				AFDEA5CF24347C02009207DD /* AppDelegate.swift */,
-				8D41A20725597F110069082D /* LibraryLayer.swift */,
 				8D93F4C3253DDF380050C8CD /* OnboardingViewController.swift */,
 				8D93F4FE25403AFB0050C8CD /* PersistenceLayer.swift */,
 				8D787CB8253EFA090057CE26 /* PermissionsManager.swift */,
@@ -220,7 +217,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFDEA5D424347C02009207DD /* MainViewController.swift in Sources */,
-				8D41A20825597F110069082D /* LibraryLayer.swift in Sources */,
 				8D93F4C4253DDF380050C8CD /* OnboardingViewController.swift in Sources */,
 				AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */,
 				8D787CB9253EFA090057CE26 /* PermissionsManager.swift in Sources */,

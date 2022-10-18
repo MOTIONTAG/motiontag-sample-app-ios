@@ -7,40 +7,46 @@
 //
 
 import UIKit
+import MotionTagSDK
 
 class MainViewController: UIViewController {
 
     @IBOutlet weak var trackingSwitch: UISwitch!
 
+    private lazy var motionTag = MotionTagCore.sharedInstance
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        LibraryLayer.shared.delegate = self
-        trackingSwitch.isOn = LibraryLayer.shared.trackingStatus
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didChangeTrackingStatusReceived(_:)),
+                                               name: NSNotification.Name.didChangeTrackingStatusNotification,
+                                               object: nil)
+        trackingSwitch.isOn = motionTag.isTrackingActive
     }
 
     @IBAction func trackingSwitchToggled(_ sender: Any) {
         if trackingSwitch.isOn {
-            LibraryLayer.shared.start()
+            motionTag.start()
         } else {
-            LibraryLayer.shared.stop()
+            motionTag.stop()
         }
     }
-    
+
     @IBAction func logoutButtonTapped(_ sender: Any) {
-        LibraryLayer.shared.stop()
-        LibraryLayer.shared.clearUserData {
+        motionTag.stop()
+        motionTag.clearData {
             DispatchQueue.main.async {
                 PersistenceLayer.isOnboardingOver = false
                 (UIApplication.shared.delegate as! AppDelegate).setupView()
             }
         }
     }
-}
 
-extension MainViewController: LibraryLayerDelegate {
-
-    func didChangeTrackingStatus(isTracking: Bool) {
+    func updateTrackingSwitch(isTracking: Bool) {
+        if trackingSwitch == nil {
+            return
+        }
         trackingSwitch.isOn = isTracking
     }
 }
@@ -49,5 +55,17 @@ extension MainViewController {
     static var viewController: MainViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+    }
+}
+
+extension MainViewController {
+
+    @objc private func didChangeTrackingStatusReceived(_ notification: Notification) {
+        guard let userInfo = notification.userInfo, let isTracking = (userInfo["isTracking"] as? Bool) else {
+            return
+        }
+        DispatchQueue.main.async {
+            self.updateTrackingSwitch(isTracking: isTracking)
+        }
     }
 }

@@ -4,6 +4,6 @@ target 'SampleApp' do
     use_frameworks!
 
     # MotionTag SDK Changelog: https://api.motion-tag.de/developer/ios_changelog
-    pod 'MotionTagSDK', '~> 4.3.1'
+    pod 'MotionTagSDK', '~> 5.0.0'
 
 end
