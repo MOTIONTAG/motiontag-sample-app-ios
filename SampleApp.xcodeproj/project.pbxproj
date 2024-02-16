@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D787CB9253EFA090057CE26 /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D787CB8253EFA090057CE26 /* PermissionsManager.swift */; };
+		8D7FE2BC2B7FAAFC006BA64E /* MotionTagSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8D7FE2BB2B7FAAFC006BA64E /* MotionTagSDK */; };
 		8D93F4C0253DDE4C0050C8CD /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D93F4BF253DDE4B0050C8CD /* Onboarding.storyboard */; };
 		8D93F4C4253DDF380050C8CD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F4C3253DDF380050C8CD /* OnboardingViewController.swift */; };
 		8D93F4F925401C5C0050C8CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D93F4F825401C5C0050C8CD /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D7FE2BC2B7FAAFC006BA64E /* MotionTagSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +94,9 @@
 			dependencies = (
 			);
 			name = SampleApp;
+			packageProductDependencies = (
+				8D7FE2BB2B7FAAFC006BA64E /* MotionTagSDK */,
+			);
 			productName = SampleApp;
 			productReference = AFDEA5CC24347C02009207DD /* SampleApp.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +125,9 @@
 				Base,
 			);
 			mainGroup = AFDEA5C324347C02009207DD;
+			packageReferences = (
+				8D7FE2BA2B7FAAFC006BA64E /* XCRemoteSwiftPackageReference "motiontag-sdk-ios-releases" */,
+			);
 			productRefGroup = AFDEA5CD24347C02009207DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -350,6 +358,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8D7FE2BA2B7FAAFC006BA64E /* XCRemoteSwiftPackageReference "motiontag-sdk-ios-releases" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MOTIONTAG/motiontag-sdk-ios-releases";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8D7FE2BB2B7FAAFC006BA64E /* MotionTagSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D7FE2BA2B7FAAFC006BA64E /* XCRemoteSwiftPackageReference "motiontag-sdk-ios-releases" */;
+			productName = MotionTagSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AFDEA5C424347C02009207DD /* Project object */;
 }
