@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
         // The SDK must also be called in the "handleEventsForBackgroundURLSession" delegate
-        motionTag.handleEvents(forBackgroundURLSession: identifier, completionHandler: completionHandler)
+        motionTag.processBackgroundSessionEvents(with: identifier, completionHandler: completionHandler)
     }
 
     func setupView() {

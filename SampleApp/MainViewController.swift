@@ -35,12 +35,9 @@ class MainViewController: UIViewController {
 
     @IBAction func logoutButtonTapped(_ sender: Any) {
         motionTag.stop()
-        motionTag.clearData {
-            DispatchQueue.main.async {
-                PersistenceLayer.isOnboardingOver = false
-                (UIApplication.shared.delegate as! AppDelegate).setupView()
-            }
-        }
+        motionTag.clearData()
+        PersistenceLayer.isOnboardingOver = false
+        (UIApplication.shared.delegate as! AppDelegate).setupView()
     }
 
     func updateTrackingSwitch(isTracking: Bool) {
