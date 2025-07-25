@@ -365,7 +365,7 @@
 			repositoryURL = "https://github.com/MOTIONTAG/motiontag-sdk-ios-releases";
 			requirement = {
 				kind = exactVersion;
-				version = 6.3.1;
+				version = 6.3.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
