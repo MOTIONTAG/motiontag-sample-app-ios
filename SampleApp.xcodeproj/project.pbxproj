@@ -9,28 +9,30 @@
 /* Begin PBXBuildFile section */
 		8D787CB9253EFA090057CE26 /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D787CB8253EFA090057CE26 /* PermissionsManager.swift */; };
 		8D7FE2BC2B7FAAFC006BA64E /* MotionTagSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8D7FE2BB2B7FAAFC006BA64E /* MotionTagSDK */; };
-		8D93F4C0253DDE4C0050C8CD /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D93F4BF253DDE4B0050C8CD /* Onboarding.storyboard */; };
-		8D93F4C4253DDF380050C8CD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F4C3253DDF380050C8CD /* OnboardingViewController.swift */; };
-		8D93F4F925401C5C0050C8CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D93F4F825401C5C0050C8CD /* Main.storyboard */; };
 		8D93F4FF25403AFB0050C8CD /* PersistenceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F4FE25403AFB0050C8CD /* PersistenceLayer.swift */; };
-		AF92F8CF2434935700D55FEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF92F8CD2434935700D55FEA /* LaunchScreen.storyboard */; };
+		8DD58C032F2362B500847199 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD58C022F2362B500847199 /* AppState.swift */; };
+		8DD58C052F236C8800847199 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD58C042F236C8800847199 /* MainViewModel.swift */; };
 		AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5CF24347C02009207DD /* AppDelegate.swift */; };
-		AFDEA5D424347C02009207DD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5D324347C02009207DD /* MainViewController.swift */; };
 		AFDEA5D924347C05009207DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDEA5D824347C05009207DD /* Assets.xcassets */; };
+		AFDEA5F124347C05009207DD /* SampleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5F024347C05009207DD /* SampleAppApp.swift */; };
+		AFDEA5F324347C05009207DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5F224347C05009207DD /* ContentView.swift */; };
+		AFDEA5F524347C05009207DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5F424347C05009207DD /* MainView.swift */; };
+		AFDEA5F724347C05009207DD /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5F624347C05009207DD /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8D787CB8253EFA090057CE26 /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
-		8D93F4BF253DDE4B0050C8CD /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
-		8D93F4C3253DDF380050C8CD /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		8D93F4F825401C5C0050C8CD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8D93F4FE25403AFB0050C8CD /* PersistenceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLayer.swift; sourceTree = "<group>"; };
-		AF92F8CE2434935700D55FEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8DD58C022F2362B500847199 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		8DD58C042F236C8800847199 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AFDEA5CC24347C02009207DD /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDEA5CF24347C02009207DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AFDEA5D324347C02009207DD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AFDEA5D824347C05009207DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFDEA5DD24347C05009207DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFDEA5F024347C05009207DD /* SampleAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAppApp.swift; sourceTree = "<group>"; };
+		AFDEA5F224347C05009207DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AFDEA5F424347C05009207DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		AFDEA5F624347C05009207DD /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,16 +66,17 @@
 		AFDEA5CE24347C02009207DD /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				AF92F8CD2434935700D55FEA /* LaunchScreen.storyboard */,
+				AFDEA5F024347C05009207DD /* SampleAppApp.swift */,
+				8DD58C022F2362B500847199 /* AppState.swift */,
+				AFDEA5F224347C05009207DD /* ContentView.swift */,
+				AFDEA5F424347C05009207DD /* MainView.swift */,
+				8DD58C042F236C8800847199 /* MainViewModel.swift */,
+				AFDEA5F624347C05009207DD /* OnboardingView.swift */,
 				AFDEA5CF24347C02009207DD /* AppDelegate.swift */,
-				8D93F4C3253DDF380050C8CD /* OnboardingViewController.swift */,
 				8D93F4FE25403AFB0050C8CD /* PersistenceLayer.swift */,
 				8D787CB8253EFA090057CE26 /* PermissionsManager.swift */,
-				AFDEA5D324347C02009207DD /* MainViewController.swift */,
 				AFDEA5D824347C05009207DD /* Assets.xcassets */,
 				AFDEA5DD24347C05009207DD /* Info.plist */,
-				8D93F4BF253DDE4B0050C8CD /* Onboarding.storyboard */,
-				8D93F4F825401C5C0050C8CD /* Main.storyboard */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -142,10 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D93F4C0253DDE4C0050C8CD /* Onboarding.storyboard in Resources */,
 				AFDEA5D924347C05009207DD /* Assets.xcassets in Resources */,
-				AF92F8CF2434935700D55FEA /* LaunchScreen.storyboard in Resources */,
-				8D93F4F925401C5C0050C8CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,26 +156,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFDEA5D424347C02009207DD /* MainViewController.swift in Sources */,
-				8D93F4C4253DDF380050C8CD /* OnboardingViewController.swift in Sources */,
+				AFDEA5F124347C05009207DD /* SampleAppApp.swift in Sources */,
+				AFDEA5F324347C05009207DD /* ContentView.swift in Sources */,
+				AFDEA5F524347C05009207DD /* MainView.swift in Sources */,
+				8DD58C032F2362B500847199 /* AppState.swift in Sources */,
+				AFDEA5F724347C05009207DD /* OnboardingView.swift in Sources */,
 				AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */,
 				8D787CB9253EFA090057CE26 /* PermissionsManager.swift in Sources */,
 				8D93F4FF25403AFB0050C8CD /* PersistenceLayer.swift in Sources */,
+				8DD58C052F236C8800847199 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		AF92F8CD2434935700D55FEA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AF92F8CE2434935700D55FEA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AFDEA5DE24347C05009207DD /* Debug */ = {
@@ -228,7 +221,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -282,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -299,7 +292,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JGX3CR5A9B;
 				INFOPLIST_FILE = SampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,7 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JGX3CR5A9B;
 				INFOPLIST_FILE = SampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
