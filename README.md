@@ -41,3 +41,41 @@ Notes:
 - The Login button persists the given token in UserDefaults. It is important that this token is retrieved from UserDefaults 
 and passed to the SDK on app startup in the AppDelegate's ```didFinishLaunchingWithOptions``` as shown.
 
+
+## iOS 27 UIScene lifecycle requirement
+
+Starting with iOS 27, Apple requires all apps built with the latest SDK to adopt the UIScene lifecycle. **Apps that still initialize their UI solely through `AppDelegate.application(_:didFinishLaunchingWithOptions:)` will fail to launch.**
+
+This sample app satisfies the requirement without a hand-written `SceneDelegate`. Here is why, and what the options are.
+
+### Option A: Use SwiftUI's `App` protocol (this sample app's approach)
+
+When your entry point conforms to the SwiftUI `App` protocol and uses `WindowGroup`, **SwiftUI manages the UIScene lifecycle internally**. Xcode and the build system recognize this as compliant — no explicit `SceneDelegate` is needed.
+
+```swift
+@main
+struct SampleAppApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
+```
+
+`AppDelegate` is still used here (via `@UIApplicationDelegateAdaptor`) for SDK initialization and background URL session handling — both of which belong in `AppDelegate` and are unaffected by this requirement.
+
+### Option B: Explicit `SceneDelegate` (pure UIKit apps)
+
+If your app does not use SwiftUI, you must migrate manually:
+
+1. **Create a `SceneDelegate`** class conforming to `UISceneDelegate` and move UI setup (window creation, root view controller) into `scene(_:willConnectTo:options:)`.
+2. **Update `AppDelegate`** — add `application(_:configurationForConnecting:options:)` returning a `UISceneConfiguration` that names your `SceneDelegate` class.
+3. **Add `UIApplicationSceneManifest`** to `Info.plist`:
+   - `UIApplicationSupportsMultipleScenes`: `NO` (for a standard single-window app)
+   - A scene configuration entry pointing at your `SceneDelegate` class name.
+4. **Keep in `AppDelegate`**: anything that must run at process launch before a scene exists — SDK initialization, background session handling, push notification registration.
+5. **Move to `SceneDelegate`**: window and root view controller setup, anything that depends on a UI surface being available.
+
