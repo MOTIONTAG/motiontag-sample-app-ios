@@ -15,7 +15,7 @@ struct OnboardingView: View {
     @StateObject private var viewModel = OnboardingViewModel()
     
     // Must be replaced with a valid token: https://api.motion-tag.de/developer/
-    private let userToken = ""
+    private let userToken = 
     
     var body: some View {
         NavigationStack {

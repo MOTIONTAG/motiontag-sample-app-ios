@@ -77,7 +77,6 @@ struct MainView: View {
                 Button(role: .destructive) {
                     appState.logout()
                     libraryLayer.toggleTracking(false)
-                    libraryLayer.clearData()
                 } label: {
                     Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
                         .font(.headline)
