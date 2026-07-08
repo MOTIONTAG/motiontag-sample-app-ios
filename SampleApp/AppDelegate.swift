@@ -7,21 +7,19 @@
 //
 
 import UIKit
-import MotionTagSDK
 
 class AppDelegate: NSObject, UIApplicationDelegate {
 
-    private lazy var motionTag = MotionTagCore.sharedInstance
+    private lazy var libraryLayer = LibraryLayer.shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // The SDK should be one of the first things initialized in the "didFinishLaunchingWithOptions" delegate
-        motionTag.initialize(using: MainViewModel.shared, launchOption: launchOptions)
-        MainViewModel.shared.configure()
+        libraryLayer.initialize(launchOptions: launchOptions)
         return true
     }
-
-    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+    
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String) async {
         // The SDK must also be called in the "handleEventsForBackgroundURLSession" delegate
-        motionTag.processBackgroundSessionEvents(with: identifier, completionHandler: completionHandler)
+        await libraryLayer.processBackgroundSessionEvents(with: identifier)
     }
 }

@@ -9,34 +9,23 @@
 import SwiftUI
 import MotionTagSDK
 
+@MainActor
 class AppState: ObservableObject {
     static let shared = AppState()
     
     @Published var isOnboardingComplete: Bool
-    @Published var isTracking: Bool = false
     
     private init() {
         isOnboardingComplete = PersistenceLayer.isOnboardingOver
     }
     
-    func completeOnboarding(with userToken: String) {
-        let motionTag = MotionTagCore.sharedInstance
-        motionTag.userToken = userToken
+    func completeOnboarding() {
         PersistenceLayer.isOnboardingOver = true
         isOnboardingComplete = true
     }
     
     func logout() {
-        let motionTag = MotionTagCore.sharedInstance
-        motionTag.stop()
-        motionTag.clearData()
         PersistenceLayer.isOnboardingOver = false
         isOnboardingComplete = false
-    }
-    
-    func updateTrackingStatus(_ isTracking: Bool) {
-        DispatchQueue.main.async {
-            self.isTracking = isTracking
-        }
     }
 }

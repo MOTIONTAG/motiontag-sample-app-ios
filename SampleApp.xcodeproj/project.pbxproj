@@ -11,7 +11,7 @@
 		8D7FE2BC2B7FAAFC006BA64E /* MotionTagSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8D7FE2BB2B7FAAFC006BA64E /* MotionTagSDK */; };
 		8D93F4FF25403AFB0050C8CD /* PersistenceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F4FE25403AFB0050C8CD /* PersistenceLayer.swift */; };
 		8DD58C032F2362B500847199 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD58C022F2362B500847199 /* AppState.swift */; };
-		8DD58C052F236C8800847199 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD58C042F236C8800847199 /* MainViewModel.swift */; };
+		8DD58C052F236C8800847199 /* LibraryLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD58C042F236C8800847199 /* LibraryLayer.swift */; };
 		AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5CF24347C02009207DD /* AppDelegate.swift */; };
 		AFDEA5D924347C05009207DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDEA5D824347C05009207DD /* Assets.xcassets */; };
 		AFDEA5F124347C05009207DD /* SampleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEA5F024347C05009207DD /* SampleAppApp.swift */; };
@@ -24,7 +24,7 @@
 		8D787CB8253EFA090057CE26 /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
 		8D93F4FE25403AFB0050C8CD /* PersistenceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLayer.swift; sourceTree = "<group>"; };
 		8DD58C022F2362B500847199 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		8DD58C042F236C8800847199 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		8DD58C042F236C8800847199 /* LibraryLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryLayer.swift; sourceTree = "<group>"; };
 		AFDEA5CC24347C02009207DD /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDEA5CF24347C02009207DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFDEA5D824347C05009207DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 				8DD58C022F2362B500847199 /* AppState.swift */,
 				AFDEA5F224347C05009207DD /* ContentView.swift */,
 				AFDEA5F424347C05009207DD /* MainView.swift */,
-				8DD58C042F236C8800847199 /* MainViewModel.swift */,
+				8DD58C042F236C8800847199 /* LibraryLayer.swift */,
 				AFDEA5F624347C05009207DD /* OnboardingView.swift */,
 				AFDEA5CF24347C02009207DD /* AppDelegate.swift */,
 				8D93F4FE25403AFB0050C8CD /* PersistenceLayer.swift */,
@@ -164,7 +164,7 @@
 				AFDEA5D024347C02009207DD /* AppDelegate.swift in Sources */,
 				8D787CB9253EFA090057CE26 /* PermissionsManager.swift in Sources */,
 				8D93F4FF25403AFB0050C8CD /* PersistenceLayer.swift in Sources */,
-				8DD58C052F236C8800847199 /* MainViewModel.swift in Sources */,
+				8DD58C052F236C8800847199 /* LibraryLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +358,7 @@
 			repositoryURL = "https://github.com/MOTIONTAG/motiontag-sdk-ios-releases";
 			requirement = {
 				kind = exactVersion;
-				version = 6.5.0;
+				version = 7.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

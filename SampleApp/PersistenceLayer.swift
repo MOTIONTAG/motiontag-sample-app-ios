@@ -11,17 +11,7 @@ import Foundation
 
 
 struct PersistenceLayer {
-    static private let MT_USER_TOKEN_KEY = "MT_USER_TOKEN_KEY"
     static private let MT_ONBOARDING_OVER_KEY = "MT_ONBOARDING_OVER_KEY"
-
-    static var token: String? {
-        get {
-            UserDefaults.standard.string(forKey: MT_USER_TOKEN_KEY)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: MT_USER_TOKEN_KEY)
-        }
-    }
 
     static var isOnboardingOver: Bool {
         get {

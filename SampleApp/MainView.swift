@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var appState: AppState
-    @ObservedObject private var viewModel = MainViewModel.shared
+    @ObservedObject private var libraryLayer = LibraryLayer.shared
     
     var body: some View {
         NavigationStack {
@@ -19,15 +19,15 @@ struct MainView: View {
                 
                 // Tracking Status Card
                 VStack(spacing: 16) {
-                    Image(systemName: viewModel.isTrackingActive ? "location.fill" : "location.slash")
+                    Image(systemName: libraryLayer.isTrackingActive ? "location.fill" : "location.slash")
                         .font(.system(size: 60))
-                        .foregroundColor(viewModel.isTrackingActive ? .green : .gray)
-                        .animation(.easeInOut, value: viewModel.isTrackingActive)
+                        .foregroundColor(libraryLayer.isTrackingActive ? .green : .gray)
+                        .animation(.easeInOut, value: libraryLayer.isTrackingActive)
                     
-                    Text(viewModel.isTrackingActive ? "Tracking Active" : "Tracking Inactive")
+                    Text(libraryLayer.isTrackingActive ? "Tracking Active" : "Tracking Inactive")
                         .font(.title2)
                         .fontWeight(.semibold)
-                        .foregroundColor(viewModel.isTrackingActive ? .primary : .secondary)
+                        .foregroundColor(libraryLayer.isTrackingActive ? .primary : .secondary)
                 }
                 .padding(32)
                 .background {
@@ -37,8 +37,8 @@ struct MainView: View {
                 
                 // Tracking Toggle
                 Toggle(isOn: Binding(
-                    get: { viewModel.isTrackingActive },
-                    set: { viewModel.toggleTracking($0) }
+                    get: { libraryLayer.isTrackingActive },
+                    set: { libraryLayer.toggleTracking($0) }
                 )) {
                     Label("Enable Tracking", systemImage: "antenna.radiowaves.left.and.right")
                         .font(.headline)
@@ -55,8 +55,8 @@ struct MainView: View {
                 
                 // WiFi Only Transfer Toggle
                 Toggle(isOn: Binding(
-                    get: { viewModel.wifiOnlyDataTransfer },
-                    set: { viewModel.setWifiOnly($0) }
+                    get: { libraryLayer.wifiOnlyDataTransfer },
+                    set: { libraryLayer.setWifiOnly($0)}
                 )) {
                     Label("WiFi Only Data Transfer", systemImage: "wifi")
                         .font(.headline)
@@ -76,6 +76,8 @@ struct MainView: View {
                 // Logout Button
                 Button(role: .destructive) {
                     appState.logout()
+                    libraryLayer.toggleTracking(false)
+                    libraryLayer.clearData()
                 } label: {
                     Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
                         .font(.headline)
